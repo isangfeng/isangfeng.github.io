@@ -1,0 +1,55 @@
+# ==========================================
+# 1. 全局基础配置
+# ==========================================
+baseURL = 'https://example.org/'
+title = '桑峰 | Sang Feng'
+theme = 'Ivy'
+
+# 语言核心设置
+defaultContentLanguage = "zh"          # 建议将中文设为默认，更符合你的主要受众
+defaultContentLanguageInSubdir = true  # 开启后 URL 结构为 /zh/ 和 /en/
+
+# ==========================================
+# 2. 中文版配置 (Chinese)
+# ==========================================
+[languages.zh]
+    languageName = "中文"
+    contentDir = "content/zh"
+    weight = 1
+    title = "桑峰|Sang Feng"
+
+    # 中文版菜单
+    [[languages.zh.menu.main]]
+        name = "博客"
+        url = "posts/"      # 相对路径会自动拼接 /zh/
+        weight = 1
+
+    [[languages.zh.menu.main]]
+        name = "English"    # 切换按钮
+        url = "/en/"        # 绝对路径跳转到英文站
+        weight = 10
+
+# ==========================================
+# 3. 英文版配置 (English)
+# ==========================================
+[languages.en]
+    languageName = "English"
+    contentDir = "content/en"
+    weight = 1
+    title = "Sang Feng|桑峰"
+
+    # 英文版菜单
+    [[languages.en.menu.main]]
+        name = "Blog"
+        url = "blog/"   # 相对路径会自动拼接 /en/
+        weight = 1
+
+    [[languages.en.menu.main]]
+        name = "Research"
+        url = "research/"   # 相对路径会自动拼接 /en/
+        weight = 2
+
+    [[languages.en.menu.main]]
+        name = "中文"      # 切换按钮
+        url = "/zh/"        # 绝对路径跳转到中文站
+        weight = 10

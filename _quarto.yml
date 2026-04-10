@@ -1,0 +1,16 @@
+project:
+  type: hugo
+
+hugo:
+  # 这里指定 Quarto 渲染后的 Markdown 文件存放位置
+  # 通常对应 Hugo 的 content 目录
+  contents: content
+
+format:
+  hugo-md:
+    code-fold: true # 允许折叠代码块
+    code-summary: "查看代码"
+    toc: true # 自动生成目录
+
+execute:
+  cache: true

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术 on 桑峰|Sang Feng</title>
+    <link>http://localhost:6908/categories/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on 桑峰|Sang Feng</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:6908/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的第一篇 Quarto 博客</title>
+      <link>http://localhost:6908/posts/2026/04/hello-world/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:6908/posts/2026/04/hello-world/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E7%AE%80%E4%BB%8B&#34;&gt;简介&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%A4%BA%E4%BE%8B&#34;&gt;数据可视化示例&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;&#xA;&lt;p&gt;这是我用 Quarto 编写的内容。&lt;/p&gt;&#xA;&lt;h2 id=&#34;数据可视化示例&#34;&gt;数据可视化示例&lt;/h2&gt;&#xA;&lt;p&gt;我们可以直接在博客中运行代码并展示结果：&lt;/p&gt;&#xA;&lt;p&gt;import matplotlib.pyplot as plt&#xA;import numpy as np&lt;/p&gt;&#xA;&lt;p&gt;x = np.linspace(0, 10, 100)&#xA;y = np.sin(x)&lt;/p&gt;&#xA;&lt;p&gt;plt.plot(x, y)&#xA;plt.show()&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Sang Feng|桑峰</title>
-    <link>http://localhost:3751/en/categories/</link>
+    <link>http://localhost:3945/en/categories/</link>
     <description>Recent content in Categories on Sang Feng|桑峰</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:3751/en/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:3945/en/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

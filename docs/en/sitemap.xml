@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/en/categories/</loc>
+    <loc>https://isangfeng.github.io/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.org/zh/categories/"
+                href="https://isangfeng.github.io/zh/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.org/en/categories/"
+                href="https://isangfeng.github.io/en/categories/"
                 />
   </url><url>
-    <loc>https://example.org/en/</loc>
+    <loc>https://isangfeng.github.io/en/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.org/zh/"
+                href="https://isangfeng.github.io/zh/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.org/en/"
+                href="https://isangfeng.github.io/en/"
                 />
   </url><url>
-    <loc>https://example.org/en/tags/</loc>
+    <loc>https://isangfeng.github.io/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.org/zh/tags/"
+                href="https://isangfeng.github.io/zh/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.org/en/tags/"
+                href="https://isangfeng.github.io/en/tags/"
                 />
   </url>
 </urlset>

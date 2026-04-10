@@ -1,7 +1,7 @@
 # ==========================================
 # 1. 全局基础配置
 # ==========================================
-baseURL = 'https://example.org/'
+baseURL = 'https://isangfeng.github.io/'
 title = '桑峰 | Sang Feng'
 theme = 'Ivy'
 

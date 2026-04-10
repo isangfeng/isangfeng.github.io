@@ -2,54 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/zh/categories/</loc>
+    <loc>https://isangfeng.github.io/zh/categories/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.org/en/categories/"
+                href="https://isangfeng.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.org/zh/categories/"
+                href="https://isangfeng.github.io/zh/categories/"
                 />
   </url><url>
-    <loc>https://example.org/zh/posts/</loc>
+    <loc>https://isangfeng.github.io/zh/posts/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/zh/categories/python/</loc>
+    <loc>https://isangfeng.github.io/zh/categories/python/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/zh/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <loc>https://isangfeng.github.io/zh/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/zh/posts/2026/03/second/</loc>
+    <loc>https://isangfeng.github.io/zh/posts/2026/03/second/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/zh/</loc>
+    <loc>https://isangfeng.github.io/zh/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.org/en/"
+                href="https://isangfeng.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.org/zh/"
+                href="https://isangfeng.github.io/zh/"
                 />
   </url><url>
-    <loc>https://example.org/zh/tags/</loc>
+    <loc>https://isangfeng.github.io/zh/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.org/en/tags/"
+                href="https://isangfeng.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.org/zh/tags/"
+                href="https://isangfeng.github.io/zh/tags/"
                 />
   </url>
 </urlset>

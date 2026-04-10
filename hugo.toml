@@ -9,6 +9,8 @@ theme = 'Ivy'
 defaultContentLanguage = "zh"          # 建议将中文设为默认，更符合你的主要受众
 defaultContentLanguageInSubdir = true  # 开启后 URL 结构为 /zh/ 和 /en/
 
+publishDir = "docs"
+
 # ==========================================
 # 2. 中文版配置 (Chinese)
 # ==========================================

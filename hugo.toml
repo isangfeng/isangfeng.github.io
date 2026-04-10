@@ -2,7 +2,7 @@
 # 1. 全局基础配置
 # ==========================================
 baseURL = 'https://isangfeng.github.io/'
-title = '桑峰 | Sang Feng'
+title = 'Feng Sang | 桑峰'
 theme = 'Ivy'
 
 # 语言核心设置
@@ -12,19 +12,42 @@ defaultContentLanguageInSubdir = true  # 开启后 URL 结构为 /zh/ 和 /en/
 publishDir = "docs"
 
 # ==========================================
+# HTML 和 Markdown 配置
+# ==========================================
+[markup.goldmark.parser]
+autoHeadingID = true
+wrapStandAloneImageWithinParagraph = true
+
+[markup.goldmark.parser.attribute]
+block = true
+title = true
+
+[markup.goldmark.renderer]
+unsafe = true  # 允许使用 HTML 标签
+
+# ==========================================
 # 2. 中文版配置 (Chinese)
 # ==========================================
 [languages.zh]
     languageName = "中文"
-    contentDir = "content/zh"
+    contentDir = "content/zh/"
     weight = 1
-    title = "桑峰|Sang Feng"
 
     # 中文版菜单
     [[languages.zh.menu.main]]
+            name = "首页"
+            url = ""      # 相对路径会自动拼接 /zh/
+            weight = 1
+
+    [[languages.zh.menu.main]]
         name = "博客"
         url = "posts/"      # 相对路径会自动拼接 /zh/
-        weight = 1
+        weight = 2
+
+    [[languages.zh.menu.main]]
+        name = "关于"
+        url = "about"      # 相对路径会自动拼接 /zh/
+        weight = 3
 
     [[languages.zh.menu.main]]
         name = "English"    # 切换按钮
@@ -35,21 +58,25 @@ publishDir = "docs"
 # 3. 英文版配置 (English)
 # ==========================================
 [languages.en]
-    languageName = "English"
-    contentDir = "content/en"
+    languageName = "Homepage"
+    contentDir = "content/en/"
     weight = 1
-    title = "Sang Feng|桑峰"
+
+    [[languages.en.menu.main]]
+        name = "Homepage"
+        url = ""      # 相对路径会自动拼接 /zh/
+        weight = 1
 
     # 英文版菜单
     [[languages.en.menu.main]]
         name = "Blog"
-        url = "blog/"   # 相对路径会自动拼接 /en/
-        weight = 1
+        url = "posts/"   # 相对路径会自动拼接 /en/
+        weight = 2
 
     [[languages.en.menu.main]]
-        name = "Research"
-        url = "research/"   # 相对路径会自动拼接 /en/
-        weight = 2
+        name = "About"
+        url = "about"    # 相对路径会自动拼接 /en/
+        weight = 3
 
     [[languages.en.menu.main]]
         name = "中文"      # 切换按钮

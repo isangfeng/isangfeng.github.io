@@ -192,6 +192,44 @@ body {
 
 .masthead .menu a {
   direction: ltr;
+  position: relative;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  transition: color .22s ease, background-color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+
+.masthead .menu li {
+  margin: 6px 0;
+}
+
+.masthead .menu li a:hover,
+.masthead .menu li a:focus-visible {
+  color: #111;
+  background: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transform: translateX(-4px);
+}
+
+.masthead .menu li.active a,
+.masthead .menu li a[aria-current="page"] {
+  color: #111;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+}
+
+.masthead .menu li.active a::before,
+.masthead .menu li a[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 4px;
+  height: 70%;
+  border-radius: 999px;
+  background: #111;
+  transform: translateY(-50%);
 }
 
 .masthead .menu ul ul {
@@ -357,6 +395,9 @@ thead, tfoot, tr:nth-child(even) {
     display: block;
     padding: 15px 20px;
     border-bottom: none;
+    border-radius: 0;
+    transform: none;
+    box-shadow: none;
   }
 
   .masthead .menu li li a {
@@ -369,6 +410,14 @@ thead, tfoot, tr:nth-child(even) {
 
   .masthead .menu li li a::before {
     content: "•\00a0\00a0\00a0";
+  }
+
+  .masthead .menu li.active a::before,
+  .masthead .menu li a[aria-current="page"]::before {
+    left: 0;
+    width: 5px;
+    height: 100%;
+    border-radius: 0;
   }
 
   #menu-label {

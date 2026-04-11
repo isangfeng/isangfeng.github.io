@@ -192,6 +192,46 @@ body {
 
 .masthead .menu a {
   direction: ltr;
+  position: relative;
+  display: inline-block;
+  padding: 4px 0;
+  border-radius: 0;
+  border-bottom: none;
+  transition: color .18s ease, transform .18s ease;
+}
+
+.masthead .menu li {
+  margin: 6px 0;
+}
+
+.masthead .menu li a:hover,
+.masthead .menu li a:focus-visible {
+  color: #111;
+  transform: translateX(-4px);
+}
+
+.masthead .menu li.active a,
+.masthead .menu li a[aria-current="page"] {
+  color: #111;
+  font-weight: 600;
+}
+
+.masthead .menu li a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: #111;
+  transition: width .18s ease;
+}
+
+.masthead .menu li a:hover::after,
+.masthead .menu li a:focus-visible::after,
+.masthead .menu li.active a::after,
+.masthead .menu li a[aria-current="page"]::after {
+  width: 100%;
 }
 
 .masthead .menu ul ul {
@@ -357,6 +397,8 @@ thead, tfoot, tr:nth-child(even) {
     display: block;
     padding: 15px 20px;
     border-bottom: none;
+    border-radius: 0;
+    transform: none;
   }
 
   .masthead .menu li li a {
@@ -369,6 +411,21 @@ thead, tfoot, tr:nth-child(even) {
 
   .masthead .menu li li a::before {
     content: "•\00a0\00a0\00a0";
+  }
+
+  .masthead .menu li a::after {
+    right: auto;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+  }
+
+  .masthead .menu li a:hover::after,
+  .masthead .menu li a:focus-visible::after,
+  .masthead .menu li.active a::after,
+  .masthead .menu li a[aria-current="page"]::after {
+    width: calc(100% - 40px);
   }
 
   #menu-label {

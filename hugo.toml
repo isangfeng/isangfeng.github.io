@@ -85,6 +85,6 @@ unsafe = true  # 允许使用 HTML 标签
         weight = 3
 
     [[languages.en.menu.main]]
-        name = "中文"      # 切换按钮
+        name = "中文版"      # 切换按钮
         url = "/zh/"        # 绝对路径跳转到中文站
         weight = 10

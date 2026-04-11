@@ -36,17 +36,17 @@ unsafe = true  # 允许使用 HTML 标签
     # 中文版菜单
     [[languages.zh.menu.main]]
             name = "首页"
-            url = ""      # 相对路径会自动拼接 /zh/
+            url = "/zh/"      # 绝对路径
             weight = 1
 
     [[languages.zh.menu.main]]
         name = "博客"
-        url = "posts/"      # 相对路径会自动拼接 /zh/
+        url = "/zh/posts/"      # 绝对路径
         weight = 2
 
     [[languages.zh.menu.main]]
         name = "关于"
-        url = "about"      # 相对路径会自动拼接 /zh/
+        url = "/zh/about"      # 绝对路径
         weight = 3
 
     [[languages.zh.menu.main]]
@@ -64,18 +64,18 @@ unsafe = true  # 允许使用 HTML 标签
 
     [[languages.en.menu.main]]
         name = "Homepage"
-        url = ""      # 相对路径会自动拼接 /zh/
+        url = "/en/"      # 绝对路径
         weight = 1
 
     # 英文版菜单
     [[languages.en.menu.main]]
         name = "Blog"
-        url = "posts/"   # 相对路径会自动拼接 /en/
+        url = "/en/posts/"   # 绝对路径
         weight = 2
 
     [[languages.en.menu.main]]
         name = "About"
-        url = "about"    # 相对路径会自动拼接 /en/
+        url = "/en/about"    # 绝对路径
         weight = 3
 
     [[languages.en.menu.main]]

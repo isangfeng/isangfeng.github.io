@@ -2,70 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:4844/zh/categories/</loc>
+    <loc>http://localhost:3106/zh/categories/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:4844/en/categories/"
+                href="http://localhost:3106/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:4844/zh/categories/"
+                href="http://localhost:3106/zh/categories/"
                 />
   </url><url>
-    <loc>http://localhost:4844/zh/posts/</loc>
+    <loc>http://localhost:3106/zh/categories/python/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4844/zh/categories/python/</loc>
+    <loc>http://localhost:3106/zh/posts/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4844/zh/about/</loc>
+    <loc>http://localhost:3106/zh/about/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:4844/en/about/"
+                href="http://localhost:3106/en/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:4844/zh/about/"
+                href="http://localhost:3106/zh/about/"
                 />
   </url><url>
-    <loc>http://localhost:4844/zh/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <loc>http://localhost:3106/zh/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4844/zh/posts/2026/03/second/</loc>
+    <loc>http://localhost:3106/zh/posts/2026/03/second/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4844/zh/posts/2026/04/hello-world/</loc>
+    <loc>http://localhost:3106/zh/posts/2026/04/hello-world/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4844/zh/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <loc>http://localhost:3106/zh/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:4844/en/"
+                href="http://localhost:3106/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:4844/zh/"
-                />
-  </url><url>
-    <loc>http://localhost:4844/zh/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:4844/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="http://localhost:4844/zh/tags/"
+                href="http://localhost:3106/zh/tags/"
                 />
   </url>
 </urlset>

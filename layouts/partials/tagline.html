@@ -1,3 +1,4 @@
 <h1><a href="{{ relURL "/" }}">{{ .Site.Title }}</a></h1>
 
 {{ with .Site.Params.Description }}<p class="tagline">{{ . }}</p>{{ end }}
+{{ partial "social_links.html" . }}

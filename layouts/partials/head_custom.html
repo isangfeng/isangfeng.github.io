@@ -1,0 +1,38 @@
+<style>
+  .social-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.9rem;
+    margin-top: 1.2rem;
+  }
+
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 0;
+    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+  }
+
+  .social-links a:hover {
+    transform: translateY(-2px);
+    background: #111;
+    color: #fff;
+  }
+
+  .social-links svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: currentColor;
+  }
+
+  @media (max-width: 760px) {
+    .social-links {
+      justify-content: center;
+    }
+  }
+</style>

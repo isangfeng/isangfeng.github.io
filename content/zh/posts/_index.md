@@ -1,5 +1,5 @@
 +++
-title = "博客"
+title = "日志"
 description = "blog page"
 date = 2026-04-10
 disableComments = true

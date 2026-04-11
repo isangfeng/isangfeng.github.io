@@ -11,6 +11,12 @@ defaultContentLanguageInSubdir = true  # 开启后 URL 结构为 /zh/ 和 /en/
 
 publishDir = "docs"
 
+[params]
+    [params.social]
+        github = "https://github.com/isangfeng"
+        email = "sangfengchn@outlook.com"
+        bilibili = "https://space.bilibili.com/357395902"
+
 # ==========================================
 # HTML 和 Markdown 配置
 # ==========================================
@@ -40,7 +46,7 @@ unsafe = true  # 允许使用 HTML 标签
             weight = 1
 
     [[languages.zh.menu.main]]
-        name = "博客"
+        name = "日志"
         url = "/zh/posts/"      # 绝对路径
         weight = 2
 

@@ -58,7 +58,7 @@
   {{ $.Scratch.Set "section" $section }}
   <body class="{{ if .IsHome }}home{{ else }}{{ $section }}{{ end }}{{ with .Params.page_class }} {{ . }}{{ end }}">
     <header class="masthead">
-      {{ partialCached "tagline.html" . $section }}
+      {{ partial "tagline.html" . }}
       {{ partial "menu.html" . }}
     </header>
 

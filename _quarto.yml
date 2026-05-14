@@ -12,5 +12,7 @@ format:
     code-summary: "查看代码"
     toc: true # 自动生成目录
 
+output-dir: docs
+
 execute:
   cache: true

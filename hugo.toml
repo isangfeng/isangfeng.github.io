@@ -47,12 +47,22 @@ unsafe = true  # 允许使用 HTML 标签
             weight = 1
 
     [[languages.zh.menu.main]]
-        name = "日志"
-        url = "/zh/posts/"      # 绝对路径
-        weight = 2
+            name = "日志"
+            url = "/zh/posts/"
+            weight = 2
 
     [[languages.zh.menu.main]]
-        name = "EN"    # 切换按钮
+        name = "分类"
+        url = "/zh/categories/"
+        weight = 3
+
+    [[languages.zh.menu.main]]
+        name = "标签"
+        url = "/zh/tags/"
+        weight = 4
+
+    [[languages.zh.menu.main]]
+        name = "EN"   # 切换按钮
         url = "/en/"        # 绝对路径跳转到英文站
         weight = 10
 
@@ -68,12 +78,21 @@ unsafe = true  # 允许使用 HTML 标签
         name = "Homepage"
         url = "/en/"      # 绝对路径
         weight = 1
-
-    # 英文版菜单
+    
     [[languages.en.menu.main]]
-        name = "Blog"
+        name = "Blogs"
         url = "/en/posts/"   # 绝对路径
         weight = 2
+
+    [[languages.en.menu.main]]
+        name = "Categories"
+        url = "/en/categories/"
+        weight = 3
+
+    [[languages.en.menu.main]]
+        name = "Tags"
+        url = "/en/tags/"
+        weight = 4
 
     [[languages.en.menu.main]]
         name = "中文"      # 切换按钮

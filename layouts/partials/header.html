@@ -59,6 +59,7 @@
   <body class="{{ if .IsHome }}home{{ else }}{{ $section }}{{ end }}{{ with .Params.page_class }} {{ . }}{{ end }}">
     <header class="masthead">
       {{ partial "tagline.html" . }}
+      {{ partial "social_links.html" . }}
       {{ partial "menu.html" . }}
     </header>
 

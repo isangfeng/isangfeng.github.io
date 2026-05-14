@@ -13,4 +13,8 @@
 </ul>
 {{ end }}
 
+{{ if .IsHome }}
+  {{ partial "comments.html" . }}
+{{ end }}
+
 {{ partial "footer.html" . }}

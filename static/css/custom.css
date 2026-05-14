@@ -99,14 +99,14 @@
         border-color: #aaa;
     }
 
-    html:not(.light) .theme-toggle-btn:hover {
-        background: #e0e0e0;
-        color: #121212;
-    }
-
     html:not(.light) .theme-toggle-btn {
         background: #121212;
         color: #e0e0e0;
+    }
+
+    html:not(.light) .theme-toggle-btn:hover {
+        background: #e0e0e0;
+        color: #121212;
     }
 
     html:not(.light) #back-to-top:hover {
@@ -208,14 +208,14 @@ html.dark #menu-label:focus {
     border-color: #aaa;
 }
 
-html.dark .theme-toggle-btn:hover {
-    background: #e0e0e0;
-    color: #121212;
-}
-
 html.dark .theme-toggle-btn {
     background: #121212;
     color: #e0e0e0;
+}
+
+html.dark .theme-toggle-btn:hover {
+    background: #e0e0e0;
+    color: #121212;
 }
 
 html.dark #back-to-top:hover {

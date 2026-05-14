@@ -137,8 +137,26 @@
         opacity: 1;
     }
 
+    html.dark .theme-toggle-btn {
+        background: #121212;
+        color: #e0e0e0;
+    }
+
     html.dark .theme-toggle-btn:hover {
-        background: rgba(255, 255, 255, 0.1);
+        background: #e0e0e0;
+        color: #121212;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        html:not(.light) .theme-toggle-btn {
+            background: #121212;
+            color: #e0e0e0;
+        }
+
+        html:not(.light) .theme-toggle-btn:hover {
+            background: #e0e0e0;
+            color: #121212;
+        }
     }
 
     @media (max-width: 760px) {

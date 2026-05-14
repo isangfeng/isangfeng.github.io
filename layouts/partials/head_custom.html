@@ -16,13 +16,11 @@
         border-radius: 999px;
         padding: 0;
         transition:
-            transform 0.18s ease,
             background-color 0.18s ease,
             color 0.18s ease;
     }
 
     .social-links a:hover {
-        transform: translateY(-2px);
         background: #111;
         color: #fff;
     }
@@ -61,7 +59,6 @@
         color: #111;
         cursor: pointer;
         transition:
-            transform 0.18s ease,
             background-color 0.18s ease,
             color 0.18s ease;
         position: relative;
@@ -72,7 +69,6 @@
     }
 
     .theme-toggle-btn:hover {
-        transform: translateY(-1px);
         background: rgba(0, 0, 0, 0.08);
         color: #111;
     }
@@ -120,7 +116,7 @@
 
     #menu-label,
     .masthead .menu a {
-        cursor: default;
+        cursor: pointer;
     }
 </style>
 <link rel="stylesheet" href="/css/custom.css" />
@@ -135,19 +131,19 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             const themeToggle = document.getElementById("theme-toggle");
-            if (!themeToggle) {
-                return;
+            if (themeToggle) {
+                themeToggle.addEventListener("click", function () {
+                    if (root.classList.contains("dark")) {
+                        root.classList.remove("dark");
+                        root.classList.add("light");
+                        localStorage.setItem("theme", "light");
+                    } else {
+                        root.classList.remove("light");
+                        root.classList.add("dark");
+                        localStorage.setItem("theme", "dark");
+                    }
+                });
             }
-
-            themeToggle.addEventListener("click", function () {
-                if (root.classList.contains("dark")) {
-                    root.classList.replace("dark", "light");
-                    localStorage.setItem("theme", "light");
-                } else {
-                    root.classList.replace("light", "dark");
-                    localStorage.setItem("theme", "dark");
-                }
-            });
 
             // Back to top button
             const backToTopBtn = document.createElement('button');
@@ -156,13 +152,16 @@
             backToTopBtn.setAttribute('aria-label', 'Back to top');
             document.body.appendChild(backToTopBtn);
 
-            window.addEventListener('scroll', function () {
+            function updateBackToTopButton() {
                 if (window.scrollY > 300) {
                     backToTopBtn.style.display = 'flex';
                 } else {
                     backToTopBtn.style.display = 'none';
                 }
-            });
+            }
+
+            window.addEventListener('scroll', updateBackToTopButton);
+            updateBackToTopButton();
 
             backToTopBtn.addEventListener('click', function () {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -171,13 +170,19 @@
             // Copy button for code blocks
             const codeBlocks = document.querySelectorAll('.highlight');
             codeBlocks.forEach(function (codeBlock) {
+                if (codeBlock.querySelector('.copy-button')) {
+                    return;
+                }
+
                 const copyButton = document.createElement('button');
                 copyButton.className = 'copy-button';
                 copyButton.textContent = 'Copy';
+                copyButton.setAttribute('type', 'button');
                 codeBlock.appendChild(copyButton);
 
                 copyButton.addEventListener('click', function () {
-                    const codeText = codeBlock.innerText.replace(/^Copy\n/, '');
+                    const codeElement = codeBlock.querySelector('code');
+                    const codeText = codeElement ? codeElement.innerText : codeBlock.innerText.replace(/\b(Copy|Copied!)\b/g, '').trim();
                     navigator.clipboard.writeText(codeText).then(function () {
                         copyButton.classList.add('copied');
                         copyButton.textContent = 'Copied!';

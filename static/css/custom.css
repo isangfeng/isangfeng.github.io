@@ -103,6 +103,16 @@
         background: #e0e0e0;
         color: #121212;
     }
+
+    html:not(.light) .theme-toggle-btn {
+        background: #121212;
+        color: #e0e0e0;
+    }
+
+    html:not(.light) #back-to-top:hover {
+        background: #e0e0e0;
+        color: #121212;
+    }
 }
 
 /* Manual dark mode */
@@ -203,6 +213,16 @@ html.dark .theme-toggle-btn:hover {
     color: #121212;
 }
 
+html.dark .theme-toggle-btn {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+html.dark #back-to-top:hover {
+    background: #e0e0e0;
+    color: #121212;
+}
+
 /* Manual light mode */
 
 html.light {
@@ -291,6 +311,11 @@ html.light .theme-toggle-btn:hover {
     color: #fff;
 }
 
+html.light #back-to-top:hover {
+    background: #111;
+    color: #fff;
+}
+
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
@@ -298,8 +323,13 @@ html {
 
 /* Code block styles */
 pre,
-pre code {
+pre code,
+.highlight {
     border-radius: 3px;
+}
+
+pre {
+    margin: 1.25rem 0;
 }
 
 pre code {
@@ -307,8 +337,17 @@ pre code {
 }
 
 .highlight {
-    border-radius: 3px;
+    position: relative;
     overflow: hidden;
+}
+
+.highlight pre {
+    margin: 0;
+}
+
+.highlight pre code {
+    padding: 1rem;
+    padding-right: 4.75rem;
 }
 
 /* Override dark mode code styles */
@@ -316,6 +355,7 @@ html:not(.light) pre,
 html:not(.light) code {
     background: #2b2b2b;
     border-color: #555;
+    color: #e6edf3;
 }
 
 html:not(.light) pre {
@@ -324,12 +364,14 @@ html:not(.light) pre {
 
 html:not(.light) code {
     background: #2b2b2b;
+    color: #e6edf3;
 }
 
 html.dark pre,
 html.dark code {
     background: #2b2b2b;
     border-color: #555;
+    color: #e6edf3;
 }
 
 html.dark pre {
@@ -338,14 +380,20 @@ html.dark pre {
 
 html.dark code {
     background: #2b2b2b;
+    color: #e6edf3;
+}
+
+html:not(.light) .highlight span,
+html.dark .highlight span {
+    color: #e6edf3 !important;
 }
 
 /* Override light mode code styles */
 html.light pre,
 html.light code {
-    background: #f9f9f9;
-    border-color: #ddd;
-    color: #333;
+    background: #f6f8fa !important;
+    border-color: #d0d7de;
+    color: #1f2328 !important;
 }
 
 html.light pre {
@@ -353,8 +401,17 @@ html.light pre {
 }
 
 html.light code {
-    background: #f9f9f9;
-    color: #333;
+    background: #f6f8fa !important;
+    color: #1f2328 !important;
+}
+
+html.light .highlight span {
+    background-color: transparent !important;
+    color: #1f2328 !important;
+}
+
+html.light .highlight code {
+    color: #1f2328 !important;
 }
 
 /* Back to top button */
@@ -370,15 +427,18 @@ html.light code {
     background: rgba(255, 255, 255, 0.95);
     color: #111;
     cursor: pointer;
-    z-index: 999;
-    transition: all 0.3s ease;
+    z-index: 1000;
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
 }
 
 #back-to-top:hover {
-    transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -389,7 +449,7 @@ html.light code {
 }
 
 html.dark #back-to-top {
-    background: rgba(50, 50, 50, 0.95);
+    background: #121212;
     color: #e0e0e0;
 }
 
@@ -408,21 +468,19 @@ html.light #back-to-top {
 }
 
 /* Copy code button */
-.highlight {
-    position: relative;
-}
-
 .copy-button {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    padding: 0.4rem 0.8rem;
-    background: rgba(0, 0, 0, 0.2);
+    top: 0.45rem;
+    right: 0.45rem;
+    min-width: 3.6rem;
+    padding: 0.25rem 0.55rem;
+    background: rgba(31, 35, 40, 0.78);
     color: #fff;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.28);
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
     opacity: 0;
     transition: all 0.2s ease;
     z-index: 10;
@@ -433,11 +491,32 @@ html.light #back-to-top {
 }
 
 .copy-button:hover {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(31, 35, 40, 0.94);
 }
 
 .copy-button.copied {
     background: #4fc3f7;
+    color: #111;
+}
+
+html.light .copy-button {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: #d0d7de;
+    color: #1f2328;
+}
+
+html.light .copy-button:hover {
+    background: #fff;
+}
+
+.giscus,
+.giscus-frame {
+    display: block;
+    width: 100%;
+}
+
+.giscus-frame {
+    border: 0;
 }
 
 /* Reading time and metadata */
@@ -468,6 +547,7 @@ html.light .post-meta {
     transition:
         color 0.18s ease,
         border-color 0.18s ease;
+    cursor: pointer;
 }
 
 .masthead .menu li a:hover,

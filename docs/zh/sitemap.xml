@@ -2,70 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/zh/categories/python/</loc>
+    <loc>https://isangfeng.github.io/zh/categories/python/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/zh/tags/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="http://localhost:1313/zh/tags/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/zh/about/</loc>
+    <loc>https://isangfeng.github.io/zh/tags/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/about/"
+                href="https://isangfeng.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/about/"
+                href="https://isangfeng.github.io/zh/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/zh/categories/</loc>
+    <loc>https://isangfeng.github.io/zh/about/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/categories/"
+                href="https://isangfeng.github.io/en/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/categories/"
+                href="https://isangfeng.github.io/zh/about/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/posts/</loc>
+    <loc>https://isangfeng.github.io/zh/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://isangfeng.github.io/zh/categories/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/posts/"
+                href="https://isangfeng.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/posts/"
+                href="https://isangfeng.github.io/zh/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/posts/2026/04/hello-world/</loc>
+    <loc>https://isangfeng.github.io/zh/posts/</loc>
+    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://isangfeng.github.io/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://isangfeng.github.io/zh/posts/"
+                />
+  </url><url>
+    <loc>https://isangfeng.github.io/zh/posts/2026/04/hello-world/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/zh/posts/2026/03/second/</loc>
+    <loc>https://isangfeng.github.io/zh/posts/2026/03/second/</loc>
     <lastmod>2026-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/zh/posts/2026/04/demo/</loc>
+    <loc>https://isangfeng.github.io/zh/posts/2026/04/demo/</loc>
   </url>
 </urlset>

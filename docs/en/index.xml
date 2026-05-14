@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Feng Sang | 桑峰</title>
-    <link>http://localhost:1313/en/</link>
+    <link>https://isangfeng.github.io/en/</link>
     <description>Recent content in Home on Feng Sang | 桑峰</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://isangfeng.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://localhost:1313/en/about/</link>
+      <link>https://isangfeng.github.io/en/about/</link>
       <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/about/</guid>
+      <guid>https://isangfeng.github.io/en/about/</guid>
       <description>&lt;p&gt;This is a about page.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -3,7 +3,20 @@
 {{ if .Params.show_toc }} {{ .TableOfContents }} {{ end }}
 
 <!-- Post metadata -->
-{{ if .IsPage }}
+{{ if and .IsPage (eq .Section "posts") }}
+{{ $readableContent := replaceRE `!\[[^\]]*\]\([^)]+\)` "" .RawContent }}
+{{ $plainText := $readableContent | markdownify | plainify }}
+{{ $metaText := "" }}
+{{ if eq .Language.Lang "zh" }}
+{{ $compactText := replaceRE `\s+` "" $plainText }}
+{{ $charCount := strings.RuneCount $compactText }}
+{{ $readingTime := cond (gt $charCount 0) (div (add $charCount 399) 400) 0 }}
+{{ $metaText = printf "%d 字 · %d 分钟阅读" $charCount $readingTime }}
+{{ else }}
+{{ $wordCount := .WordCount }}
+{{ $readingTime := cond (gt $wordCount 0) (div (add $wordCount 199) 200) 0 }}
+{{ $metaText = printf "%d words · %d min read" $wordCount $readingTime }}
+{{ end }}
 <div class="post-meta">
     <span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -13,7 +26,7 @@
             <path d="M1 12h6m6 0h6"></path>
             <path d="M4.22 19.78l4.24-4.24m3.08 3.08l4.24-4.24"></path>
         </svg>
-        {{ .WordCount }} words · {{ (div .WordCount 200) | default "1" }} min read
+        {{ $metaText }}
     </span>
 </div>
 {{ end }}

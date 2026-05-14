@@ -20,15 +20,9 @@
       
       <meta property="description" content="这是我用 Quarto 编写的内容。
 [&hellip;] 我们可以直接在博客中运行代码并展示结果：
-import matplotlib.pyplot as plt import numpy as np
-x = np.linspace(0, 10, 100) y = np.sin(x)
-plt.plot(x, y) plt.show()
 ">
       <meta property="og:description" content="这是我用 Quarto 编写的内容。
 [&hellip;] 我们可以直接在博客中运行代码并展示结果：
-import matplotlib.pyplot as plt import numpy as np
-x = np.linspace(0, 10, 100) y = np.sin(x)
-plt.plot(x, y) plt.show()
 ">
       
     
@@ -42,154 +36,203 @@ plt.plot(x, y) plt.show()
     
     
 
+
+
+
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <style>
-  .social-links {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.9rem;
-    margin-top: 1.2rem;
-  }
-
-  .social-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.2rem;
-    height: 2.2rem;
-    border: 1px solid currentColor;
-    border-radius: 999px;
-    padding: 0;
-    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
-  }
-
-  .social-links a:hover {
-    transform: translateY(-2px);
-    background: #111;
-    color: #fff;
-  }
-
-  .social-links svg {
-    width: 1.1rem;
-    height: 1.1rem;
-    fill: currentColor;
-  }
-
-  @media (max-width: 760px) {
     .social-links {
-      justify-content: center;
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.9rem;
+        margin-top: 1.2rem;
     }
-  }
 
-  .theme-toggle {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin-top: 1rem;
-    z-index: 1;
-  }
+    .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.2rem;
+        height: 2.2rem;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        padding: 0;
+        transition:
+            transform 0.18s ease,
+            background-color 0.18s ease,
+            color 0.18s ease;
+    }
 
-  .theme-toggle-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 3.2rem;
-    min-width: 3.2rem;
-    min-height: 1.7rem;
-    padding: 0 0.3rem;
-    border: 1px solid currentColor;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.95);
-    color: #111;
-    cursor: pointer;
-    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
-    position: relative;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
-  }
+    .social-links a:hover {
+        transform: translateY(-2px);
+        background: #111;
+        color: #fff;
+    }
 
-  .theme-toggle-btn:hover {
-    transform: translateY(-1px);
-    background: rgba(0, 0, 0, 0.08);
-    color: #111;
-  }
+    .social-links svg {
+        width: 1.1rem;
+        height: 1.1rem;
+        fill: currentColor;
+    }
 
-  .theme-toggle-btn:focus-visible {
-    outline: 2px solid rgba(0, 0, 0, 0.2);
-    outline-offset: 2px;
-  }
+    @media (max-width: 760px) {
+        .social-links {
+            justify-content: center;
+        }
+    }
 
-  .theme-toggle-btn svg {
-    display: block;
-    width: 1rem;
-    height: 1rem;
-    fill: currentColor;
-    transition: opacity 0.3s ease;
-  }
-
-  .theme-toggle-btn .sun-icon {
-    opacity: 1;
-    position: relative;
-  }
-
-  .theme-toggle-btn .moon-icon {
-    opacity: 0;
-    position: relative;
-  }
-
-  html.dark .theme-toggle-btn .sun-icon {
-    opacity: 0;
-  }
-
-  html.dark .theme-toggle-btn .moon-icon {
-    opacity: 1;
-  }
-
-  html.dark .theme-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  @media (max-width: 760px) {
     .theme-toggle {
-      justify-content: center;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 1rem;
+        z-index: 1;
     }
-  }
 
-  #menu-label,
-  .masthead .menu a {
-    cursor: default;
-  }
+    .theme-toggle-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.2rem;
+        min-width: 3.2rem;
+        min-height: 1.7rem;
+        padding: 0 0.3rem;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #111;
+        cursor: pointer;
+        transition:
+            transform 0.18s ease,
+            background-color 0.18s ease,
+            color 0.18s ease;
+        position: relative;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+
+    .theme-toggle-btn:hover {
+        transform: translateY(-1px);
+        background: rgba(0, 0, 0, 0.08);
+        color: #111;
+    }
+
+    .theme-toggle-btn:focus-visible {
+        outline: 2px solid rgba(0, 0, 0, 0.2);
+        outline-offset: 2px;
+    }
+
+    .theme-toggle-btn svg {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        fill: currentColor;
+        transition: opacity 0.3s ease;
+    }
+
+    .theme-toggle-btn .sun-icon {
+        opacity: 1;
+        position: relative;
+    }
+
+    .theme-toggle-btn .moon-icon {
+        opacity: 0;
+        position: relative;
+    }
+
+    html.dark .theme-toggle-btn .sun-icon {
+        opacity: 0;
+    }
+
+    html.dark .theme-toggle-btn .moon-icon {
+        opacity: 1;
+    }
+
+    html.dark .theme-toggle-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 760px) {
+        .theme-toggle {
+            justify-content: center;
+        }
+    }
+
+    #menu-label,
+    .masthead .menu a {
+        cursor: default;
+    }
 </style>
 <link rel="stylesheet" href="/css/custom.css" />
 <script>
-  (function() {
-    const root = document.documentElement;
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || savedTheme === 'light') {
-      root.classList.remove('dark', 'light');
-      root.classList.add(savedTheme);
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const themeToggle = document.getElementById('theme-toggle');
-      if (!themeToggle) {
-        return;
-      }
-
-      themeToggle.addEventListener('click', function() {
-        if (root.classList.contains('dark')) {
-          root.classList.replace('dark', 'light');
-          localStorage.setItem('theme', 'light');
-        } else {
-          root.classList.replace('light', 'dark');
-          localStorage.setItem('theme', 'dark');
+    (function () {
+        const root = document.documentElement;
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark" || savedTheme === "light") {
+            root.classList.remove("dark", "light");
+            root.classList.add(savedTheme);
         }
-      });
-    });
-  })();
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeToggle = document.getElementById("theme-toggle");
+            if (!themeToggle) {
+                return;
+            }
+
+            themeToggle.addEventListener("click", function () {
+                if (root.classList.contains("dark")) {
+                    root.classList.replace("dark", "light");
+                    localStorage.setItem("theme", "light");
+                } else {
+                    root.classList.replace("light", "dark");
+                    localStorage.setItem("theme", "dark");
+                }
+            });
+
+            
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.id = 'back-to-top';
+            backToTopBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg>';
+            backToTopBtn.setAttribute('aria-label', 'Back to top');
+            document.body.appendChild(backToTopBtn);
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopBtn.style.display = 'flex';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            
+            const codeBlocks = document.querySelectorAll('.highlight');
+            codeBlocks.forEach(function (codeBlock) {
+                const copyButton = document.createElement('button');
+                copyButton.className = 'copy-button';
+                copyButton.textContent = 'Copy';
+                codeBlock.appendChild(copyButton);
+
+                copyButton.addEventListener('click', function () {
+                    const codeText = codeBlock.innerText.replace(/^Copy\n/, '');
+                    navigator.clipboard.writeText(codeText).then(function () {
+                        copyButton.classList.add('copied');
+                        copyButton.textContent = 'Copied!';
+                        setTimeout(function () {
+                            copyButton.textContent = 'Copy';
+                            copyButton.classList.remove('copied');
+                        }, 2000);
+                    });
+                });
+            });
+        });
+    })();
 </script>
 
   </head>
@@ -225,6 +268,8 @@ plt.plot(x, y) plt.show()
   <li><a href="/zh/">首页</a></li>
   
   <li><a href="/zh/posts/">日志</a></li>
+  
+  <li><a href="/zh/photos/">光影</a></li>
   
   <li><a href="/zh/categories/">分类</a></li>
   
@@ -274,6 +319,22 @@ plt.plot(x, y) plt.show()
 
 
 
+<div class="post-meta">
+    <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="1"></circle>
+            <path d="M12 1v6m0 6v6"></path>
+            <path d="M4.22 4.22l4.24 4.24m3.08-3.08l4.24 4.24"></path>
+            <path d="M1 12h6m6 0h6"></path>
+            <path d="M4.22 19.78l4.24-4.24m3.08 3.08l4.24-4.24"></path>
+        </svg>
+        27 words · 1 min read
+    </span>
+</div>
+
+
+
+
 <ul>
 <li><a href="/zh/posts/2026/03/second/#%e7%ae%80%e4%bb%8b">简介</a></li>
 <li><a href="/zh/posts/2026/03/second/#%e6%95%b0%e6%8d%ae%e5%8f%af%e8%a7%86%e5%8c%96%e7%a4%ba%e4%be%8b">数据可视化示例</a></li>
@@ -282,13 +343,15 @@ plt.plot(x, y) plt.show()
 <p>这是我用 Quarto 编写的内容。</p>
 <h2 id="数据可视化示例">数据可视化示例</h2>
 <p>我们可以直接在博客中运行代码并展示结果：</p>
-<p>import matplotlib.pyplot as plt
-import numpy as np</p>
-<p>x = np.linspace(0, 10, 100)
-y = np.sin(x)</p>
-<p>plt.plot(x, y)
-plt.show()</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sin(x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div>
 
 
 
@@ -297,6 +360,14 @@ plt.show()</p>
   <footer>
   
   
+
+
+
+
+
+<script src="//cdn.jsdelivr.net/combine/gh/highlightjs/cdn-release@%3cnil%3e/build/highlight.min.js,npm/@xiee/utils/js/load-highlight.js" defer></script>
+
+
 
   
   <hr>

@@ -1,124 +1,124 @@
 /* Auto dark mode based on system preference */
 
 @media (prefers-color-scheme: dark) {
-  html:not(.light) {
-    color: #e0e0e0;
-    background: #121212;
-  }
+    html:not(.light) {
+        color: #e0e0e0;
+        background: #121212;
+    }
 
-  html:not(.light) a {
-    color: #ffffff;
-  }
+    html:not(.light) a {
+        color: #ffffff;
+    }
 
-  html:not(.light) a:hover,
-  html:not(.light) a:focus-visible {
-    color: #4fc3f7;
-  }
+    html:not(.light) a:hover,
+    html:not(.light) a:focus-visible {
+        color: #4fc3f7;
+    }
 
-  html:not(.light) .masthead h1 a,
-  html:not(.light) .title h1 a,
-  html:not(.light) .masthead .menu a,
-  html:not(.light) .masthead .menu li.active a,
-  html:not(.light) .masthead .menu li a:hover,
-  html:not(.light) .masthead .menu li a:focus-visible,
-  html:not(.light) .masthead .menu li a:visited {
-    color: #ffffff !important;
-  }
+    html:not(.light) .masthead h1 a,
+    html:not(.light) .title h1 a,
+    html:not(.light) .masthead .menu a,
+    html:not(.light) .masthead .menu li.active a,
+    html:not(.light) .masthead .menu li a:hover,
+    html:not(.light) .masthead .menu li a:focus-visible,
+    html:not(.light) .masthead .menu li a:visited {
+        color: #ffffff !important;
+    }
 
-  html:not(.light) .main {
-    border-left-color: #e0e0e0;
-  }
+    html:not(.light) .main {
+        border-left-color: #e0e0e0;
+    }
 
-  html:not(.light) .masthead {
-    border-bottom-color: #e0e0e0;
-  }
+    html:not(.light) .masthead {
+        border-bottom-color: #e0e0e0;
+    }
 
-  html:not(.light) blockquote {
-    border-left-color: #555;
-  }
+    html:not(.light) blockquote {
+        border-left-color: #555;
+    }
 
-  html:not(.light) pre,
-  html:not(.light) code {
-    background: #2b2b2b;
-    border-color: #555;
-  }
+    html:not(.light) pre,
+    html:not(.light) code {
+        background: #2b2b2b;
+        border-color: #555;
+    }
 
-  html:not(.light) pre {
-    box-shadow: 5px 5px 5px #000;
-  }
+    html:not(.light) pre {
+        box-shadow: none;
+    }
 
-  html:not(.light) code {
-    background: #2b2b2b;
-  }
+    html:not(.light) code {
+        background: #2b2b2b;
+    }
 
-  html:not(.light) table {
-    border-color: #555;
-  }
+    html:not(.light) table {
+        border-color: #555;
+    }
 
-  html:not(.light) table thead th {
-    border-color: #555;
-  }
+    html:not(.light) table thead th {
+        border-color: #555;
+    }
 
-  html:not(.light) thead,
-  html:not(.light) tfoot,
-  html:not(.light) tr:nth-child(even) {
-    background: #1e1e1e;
-  }
+    html:not(.light) thead,
+    html:not(.light) tfoot,
+    html:not(.light) tr:nth-child(even) {
+        background: #1e1e1e;
+    }
 
-  html:not(.light) hr {
-    border-color: #555;
-  }
+    html:not(.light) hr {
+        border-color: #555;
+    }
 
-  html:not(.light) .masthead .menu li a:hover,
-  html:not(.light) .masthead .menu li a:focus-visible,
-  html:not(.light) .masthead .menu li.active a,
-  html:not(.light) .masthead .menu li a[aria-current="page"] {
-    color: #e0e0e0;
-  }
+    html:not(.light) .masthead .menu li a:hover,
+    html:not(.light) .masthead .menu li a:focus-visible,
+    html:not(.light) .masthead .menu li.active a,
+    html:not(.light) .masthead .menu li a[aria-current="page"] {
+        color: #e0e0e0;
+    }
 
-  html:not(.light) .masthead .menu li a::after {
-    background: #e0e0e0;
-  }
+    html:not(.light) .masthead .menu li a::after {
+        background: #e0e0e0;
+    }
 
-  html:not(.light) .subtitle {
-    color: #aaa;
-  }
+    html:not(.light) .subtitle {
+        color: #aaa;
+    }
 
-  html:not(.light) .social-links a:hover {
-    background: #e0e0e0;
-    color: #121212;
-  }
+    html:not(.light) .social-links a:hover {
+        background: #e0e0e0;
+        color: #121212;
+    }
 
-  html:not(.light) #menu-label {
-    color: #e0e0e0;
-    border-color: #555;
-  }
+    html:not(.light) #menu-label {
+        color: #e0e0e0;
+        border-color: #555;
+    }
 
-  html:not(.light) #menu-label:hover,
-  html:not(.light) #menu-label:focus {
-    border-color: #aaa;
-  }
+    html:not(.light) #menu-label:hover,
+    html:not(.light) #menu-label:focus {
+        border-color: #aaa;
+    }
 
-  html:not(.light) .theme-toggle-btn:hover {
-    background: #e0e0e0;
-    color: #121212;
-  }
+    html:not(.light) .theme-toggle-btn:hover {
+        background: #e0e0e0;
+        color: #121212;
+    }
 }
 
 /* Manual dark mode */
 
 html.dark {
-  color: white;
-  background: #121212;
+    color: white;
+    background: #121212;
 }
 
 html.dark a {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 html.dark a:hover,
 html.dark a:focus-visible {
-  color: #4fc3f7;
+    color: #4fc3f7;
 }
 
 html.dark .masthead h1 a,
@@ -128,200 +128,365 @@ html.dark .masthead .menu li.active a,
 html.dark .masthead .menu li a:hover,
 html.dark .masthead .menu li a:focus-visible,
 html.dark .masthead .menu li a:visited {
-  color: #ffffff !important;
+    color: #ffffff !important;
 }
 
 html.dark .main {
-  border-left-color: #e0e0e0;
+    border-left-color: #e0e0e0;
 }
 
 html.dark .masthead {
-  border-bottom-color: #e0e0e0;
+    border-bottom-color: #e0e0e0;
 }
 
 html.dark blockquote {
-  border-left-color: #555;
+    border-left-color: #555;
 }
 
 html.dark pre,
 html.dark code {
-  background: #2b2b2b;
-  border-color: #555;
+    background: #2b2b2b;
+    border-color: #555;
 }
 
 html.dark pre {
-  box-shadow: 5px 5px 5px #000;
-}
-
-html.dark code {
-  background: #2b2b2b;
-}
-
-html.dark table {
-  border-color: #555;
+        box-shadow: none;
+    border-color: #555;
 }
 
 html.dark table thead th {
-  border-color: #555;
+    border-color: #555;
 }
 
 html.dark thead,
 html.dark tfoot,
 html.dark tr:nth-child(even) {
-  background: #1e1e1e;
+    background: #1e1e1e;
 }
 
 html.dark hr {
-  border-color: #555;
+    border-color: #555;
 }
 
 html.dark .masthead .menu li a:hover,
 html.dark .masthead .menu li a:focus-visible,
 html.dark .masthead .menu li.active a,
 html.dark .masthead .menu li a[aria-current="page"] {
-  color: #e0e0e0;
+    color: #e0e0e0;
 }
 
 html.dark .masthead .menu li a::after {
-  background: #e0e0e0;
+    background: #e0e0e0;
 }
 
 html.dark .subtitle {
-  color: #aaa;
+    color: #aaa;
 }
 
 html.dark .social-links a:hover {
-  background: #e0e0e0;
-  color: #121212;
+    background: #e0e0e0;
+    color: #121212;
 }
 
 html.dark #menu-label {
-  color: #e0e0e0;
-  border-color: #555;
+    color: #e0e0e0;
+    border-color: #555;
 }
 
 html.dark #menu-label:hover,
 html.dark #menu-label:focus {
-  border-color: #aaa;
+    border-color: #aaa;
 }
 
 html.dark .theme-toggle-btn:hover {
-  background: #e0e0e0;
-  color: #121212;
+    background: #e0e0e0;
+    color: #121212;
 }
 
 /* Manual light mode */
 
 html.light {
-  color: black;
-  background: white;
+    color: black;
+    background: white;
 }
 
 html.light a {
-  color: black;
+    color: black;
 }
 
 html.light .main {
-  border-left-color: black;
+    border-left-color: black;
 }
 
 html.light .masthead {
-  border-bottom-color: black;
+    border-bottom-color: black;
 }
 
 html.light blockquote {
-  border-left-color: #ddd;
+    border-left-color: #ddd;
 }
 
 html.light pre,
 html.light code {
-  background: #f9f9f9;
-  border-color: #ddd;
-}
+    background: #f9f9f9;
+    border-color: #ddd;
+        color: #333;
+    }
 
-html.light pre {
-  box-shadow: 5px 5px 5px #eee;
-}
+    html.light pre {
+        box-shadow: none;
+    }
 
-html.light code {
-  background: #f9f9f9;
-}
-
-html.light table {
-  border-color: #666;
+    html.light code {
+        background: #f9f9f9;
+        color: #333;
 }
 
 html.light table thead th {
-  border-color: #666;
+    border-color: #666;
 }
 
 html.light thead,
 html.light tfoot,
 html.light tr:nth-child(even) {
-  background: #f8f8f8;
+    background: #f8f8f8;
 }
 
 html.light hr {
-  border-color: black;
+    border-color: black;
 }
 
 html.light .masthead .menu li a:hover,
 html.light .masthead .menu li a:focus-visible,
 html.light .masthead .menu li.active a,
 html.light .masthead .menu li a[aria-current="page"] {
-  color: #111;
+    color: #111;
 }
 
 html.light .masthead .menu li a::after {
-  background: #111;
+    background: #111;
 }
 
 html.light .subtitle {
-  color: #666;
+    color: #666;
 }
 
 html.light .social-links a:hover {
-  background: #111;
-  color: #fff;
+    background: #111;
+    color: #fff;
 }
 
 html.light #menu-label {
-  color: #333;
-  border-color: #333;
+    color: #333;
+    border-color: #333;
 }
 
 html.light #menu-label:hover,
 html.light #menu-label:focus {
-  border-color: #888;
+    border-color: #888;
 }
 
 html.light .theme-toggle-btn:hover {
-  background: #111;
-  color: #fff;
+    background: #111;
+    color: #fff;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Code block styles */
+pre,
+pre code {
+    border-radius: 3px;
+}
+
+pre code {
+    box-shadow: none !important;
+}
+
+.highlight {
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+/* Override dark mode code styles */
+html:not(.light) pre,
+html:not(.light) code {
+    background: #2b2b2b;
+    border-color: #555;
+}
+
+html:not(.light) pre {
+    box-shadow: none !important;
+}
+
+html:not(.light) code {
+    background: #2b2b2b;
+}
+
+html.dark pre,
+html.dark code {
+    background: #2b2b2b;
+    border-color: #555;
+}
+
+html.dark pre {
+    box-shadow: none !important;
+}
+
+html.dark code {
+    background: #2b2b2b;
+}
+
+/* Override light mode code styles */
+html.light pre,
+html.light code {
+    background: #f9f9f9;
+    border-color: #ddd;
+    color: #333;
+}
+
+html.light pre {
+    box-shadow: none !important;
+}
+
+html.light code {
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Back to top button */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #111;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#back-to-top svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: currentColor;
+}
+
+html.dark #back-to-top {
+    background: rgba(50, 50, 50, 0.95);
+    color: #e0e0e0;
+}
+
+html.light #back-to-top {
+    background: rgba(255, 255, 255, 0.95);
+    color: #111;
+}
+
+@media (max-width: 760px) {
+    #back-to-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+}
+
+/* Copy code button */
+.highlight {
+    position: relative;
+}
+
+.copy-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    opacity: 0;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.highlight:hover .copy-button {
+    opacity: 1;
+}
+
+.copy-button:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.copy-button.copied {
+    background: #4fc3f7;
+}
+
+/* Reading time and metadata */
+.post-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    color: #999;
+}
+
+.post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+html.dark .post-meta {
+    color: #aaa;
+}
+
+html.light .post-meta {
+    color: #666;
 }
 
 /* Use underline hover / active effect for menu links, no translate movement */
 .masthead .menu a {
-  transition: color .18s ease, border-color .18s ease;
+    transition:
+        color 0.18s ease,
+        border-color 0.18s ease;
 }
 
 .masthead .menu li a:hover,
 .masthead .menu li a:focus-visible {
-  transform: none;
+    transform: none;
 }
 
 .masthead .menu li a::after {
-  right: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: width .18s ease;
+    right: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.18s ease;
 }
 
 .masthead .menu li a:hover::after,
 .masthead .menu li a:focus-visible::after,
 .masthead .menu li.active a::after,
 .masthead .menu li a[aria-current="page"]::after {
-  width: 100%;
+    width: 100%;
 }

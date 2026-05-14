@@ -18,6 +18,7 @@ categories:
 
 我们可以直接在博客中运行代码并展示结果：
 
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -26,3 +27,4 @@ y = np.sin(x)
 
 plt.plot(x, y)
 plt.show()
+```

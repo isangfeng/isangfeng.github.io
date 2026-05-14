@@ -34,151 +34,197 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <style>
-  .social-links {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.9rem;
-    margin-top: 1.2rem;
-  }
-
-  .social-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.2rem;
-    height: 2.2rem;
-    border: 1px solid currentColor;
-    border-radius: 999px;
-    padding: 0;
-    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
-  }
-
-  .social-links a:hover {
-    transform: translateY(-2px);
-    background: #111;
-    color: #fff;
-  }
-
-  .social-links svg {
-    width: 1.1rem;
-    height: 1.1rem;
-    fill: currentColor;
-  }
-
-  @media (max-width: 760px) {
     .social-links {
-      justify-content: center;
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.9rem;
+        margin-top: 1.2rem;
     }
-  }
 
-  .theme-toggle {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin-top: 1rem;
-    z-index: 1;
-  }
+    .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.2rem;
+        height: 2.2rem;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        padding: 0;
+        transition:
+            transform 0.18s ease,
+            background-color 0.18s ease,
+            color 0.18s ease;
+    }
 
-  .theme-toggle-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 3.2rem;
-    min-width: 3.2rem;
-    min-height: 1.7rem;
-    padding: 0 0.3rem;
-    border: 1px solid currentColor;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.95);
-    color: #111;
-    cursor: pointer;
-    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
-    position: relative;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
-  }
+    .social-links a:hover {
+        transform: translateY(-2px);
+        background: #111;
+        color: #fff;
+    }
 
-  .theme-toggle-btn:hover {
-    transform: translateY(-1px);
-    background: rgba(0, 0, 0, 0.08);
-    color: #111;
-  }
+    .social-links svg {
+        width: 1.1rem;
+        height: 1.1rem;
+        fill: currentColor;
+    }
 
-  .theme-toggle-btn:focus-visible {
-    outline: 2px solid rgba(0, 0, 0, 0.2);
-    outline-offset: 2px;
-  }
+    @media (max-width: 760px) {
+        .social-links {
+            justify-content: center;
+        }
+    }
 
-  .theme-toggle-btn svg {
-    display: block;
-    width: 1rem;
-    height: 1rem;
-    fill: currentColor;
-    transition: opacity 0.3s ease;
-  }
-
-  .theme-toggle-btn .sun-icon {
-    opacity: 1;
-    position: relative;
-  }
-
-  .theme-toggle-btn .moon-icon {
-    opacity: 0;
-    position: relative;
-  }
-
-  html.dark .theme-toggle-btn .sun-icon {
-    opacity: 0;
-  }
-
-  html.dark .theme-toggle-btn .moon-icon {
-    opacity: 1;
-  }
-
-  html.dark .theme-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  @media (max-width: 760px) {
     .theme-toggle {
-      justify-content: center;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 1rem;
+        z-index: 1;
     }
-  }
 
-  #menu-label,
-  .masthead .menu a {
-    cursor: default;
-  }
+    .theme-toggle-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.2rem;
+        min-width: 3.2rem;
+        min-height: 1.7rem;
+        padding: 0 0.3rem;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #111;
+        cursor: pointer;
+        transition:
+            transform 0.18s ease,
+            background-color 0.18s ease,
+            color 0.18s ease;
+        position: relative;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+
+    .theme-toggle-btn:hover {
+        transform: translateY(-1px);
+        background: rgba(0, 0, 0, 0.08);
+        color: #111;
+    }
+
+    .theme-toggle-btn:focus-visible {
+        outline: 2px solid rgba(0, 0, 0, 0.2);
+        outline-offset: 2px;
+    }
+
+    .theme-toggle-btn svg {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        fill: currentColor;
+        transition: opacity 0.3s ease;
+    }
+
+    .theme-toggle-btn .sun-icon {
+        opacity: 1;
+        position: relative;
+    }
+
+    .theme-toggle-btn .moon-icon {
+        opacity: 0;
+        position: relative;
+    }
+
+    html.dark .theme-toggle-btn .sun-icon {
+        opacity: 0;
+    }
+
+    html.dark .theme-toggle-btn .moon-icon {
+        opacity: 1;
+    }
+
+    html.dark .theme-toggle-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 760px) {
+        .theme-toggle {
+            justify-content: center;
+        }
+    }
+
+    #menu-label,
+    .masthead .menu a {
+        cursor: default;
+    }
 </style>
 <link rel="stylesheet" href="/css/custom.css" />
 <script>
-  (function() {
-    const root = document.documentElement;
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || savedTheme === 'light') {
-      root.classList.remove('dark', 'light');
-      root.classList.add(savedTheme);
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const themeToggle = document.getElementById('theme-toggle');
-      if (!themeToggle) {
-        return;
-      }
-
-      themeToggle.addEventListener('click', function() {
-        if (root.classList.contains('dark')) {
-          root.classList.replace('dark', 'light');
-          localStorage.setItem('theme', 'light');
-        } else {
-          root.classList.replace('light', 'dark');
-          localStorage.setItem('theme', 'dark');
+    (function () {
+        const root = document.documentElement;
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark" || savedTheme === "light") {
+            root.classList.remove("dark", "light");
+            root.classList.add(savedTheme);
         }
-      });
-    });
-  })();
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeToggle = document.getElementById("theme-toggle");
+            if (!themeToggle) {
+                return;
+            }
+
+            themeToggle.addEventListener("click", function () {
+                if (root.classList.contains("dark")) {
+                    root.classList.replace("dark", "light");
+                    localStorage.setItem("theme", "light");
+                } else {
+                    root.classList.replace("light", "dark");
+                    localStorage.setItem("theme", "dark");
+                }
+            });
+
+            
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.id = 'back-to-top';
+            backToTopBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg>';
+            backToTopBtn.setAttribute('aria-label', 'Back to top');
+            document.body.appendChild(backToTopBtn);
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopBtn.style.display = 'flex';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            
+            const codeBlocks = document.querySelectorAll('.highlight');
+            codeBlocks.forEach(function (codeBlock) {
+                const copyButton = document.createElement('button');
+                copyButton.className = 'copy-button';
+                copyButton.textContent = 'Copy';
+                codeBlock.appendChild(copyButton);
+
+                copyButton.addEventListener('click', function () {
+                    const codeText = codeBlock.innerText.replace(/^Copy\n/, '');
+                    navigator.clipboard.writeText(codeText).then(function () {
+                        copyButton.classList.add('copied');
+                        copyButton.textContent = 'Copied!';
+                        setTimeout(function () {
+                            copyButton.textContent = 'Copy';
+                            copyButton.classList.remove('copied');
+                        }, 2000);
+                    });
+                });
+            });
+        });
+    })();
 </script>
 
   </head>
@@ -214,6 +260,8 @@
   <li><a href="/zh/">首页</a></li>
   
   <li><a href="/zh/posts/">日志</a></li>
+  
+  <li><a href="/zh/photos/">光影</a></li>
   
   <li><a href="/zh/categories/">分类</a></li>
   

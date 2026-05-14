@@ -12,6 +12,7 @@ defaultContentLanguageInSubdir = true  # 开启后 URL 结构为 /zh/ 和 /en/
 publishDir = "docs"
 
 [params]
+    footer = "&copy; Feng Sang 2024-{Year}"
     [params.social]
         github = "https://github.com/isangfeng"
         email = "sangfengchn@outlook.com"

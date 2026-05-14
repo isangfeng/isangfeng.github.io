@@ -7,8 +7,8 @@ categories:
 ---
 
 
-- [简介](#简介)
-- [数据可视化示例](#数据可视化示例)
+-   [简介](#简介)
+-   [数据可视化示例](#数据可视化示例)
 
 ## 简介
 
@@ -18,6 +18,7 @@ categories:
 
 我们可以直接在博客中运行代码并展示结果：
 
+``` python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -26,3 +27,4 @@ y = np.sin(x)
 
 plt.plot(x, y)
 plt.show()
+```

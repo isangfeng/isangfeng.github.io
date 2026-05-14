@@ -52,19 +52,14 @@ unsafe = true  # 允许使用 HTML 标签
             weight = 2
 
     [[languages.zh.menu.main]]
-            name = "光影"
-            url = "/zh/photos/"
-            weight = 3
-
-    [[languages.zh.menu.main]]
         name = "分类"
         url = "/zh/categories/"
-        weight = 4
+        weight = 3
 
     [[languages.zh.menu.main]]
         name = "标签"
         url = "/zh/tags/"
-        weight = 5
+        weight = 4
 
     [[languages.zh.menu.main]]
         name = "EN"   # 切换按钮

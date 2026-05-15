@@ -122,9 +122,11 @@
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
     }
 
-    .theme-toggle-btn:hover {
-        background: rgba(0, 0, 0, 0.08);
-        color: #111;
+    @media (hover: hover) {
+        .theme-toggle-btn:hover {
+            background: rgba(0, 0, 0, 0.08);
+            color: #111;
+        }
     }
 
     .theme-toggle-btn:focus-visible {
@@ -163,9 +165,11 @@
         color: #e0e0e0;
     }
 
-    html.dark .theme-toggle-btn:hover {
-        background: #e0e0e0;
-        color: #121212;
+    @media (hover: hover) {
+        html.dark .theme-toggle-btn:hover {
+            background: #e0e0e0;
+            color: #121212;
+        }
     }
 
     @media (prefers-color-scheme: dark) {
@@ -173,7 +177,9 @@
             background: #121212;
             color: #e0e0e0;
         }
+    }
 
+    @media (prefers-color-scheme: dark) and (hover: hover) {
         html:not(.light) .theme-toggle-btn:hover {
             background: #e0e0e0;
             color: #121212;
@@ -184,6 +190,16 @@
         .theme-toggle {
             justify-content: center;
         }
+    }
+
+    #ambient-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        pointer-events: none;
+        z-index: 0;
     }
 
     #menu-label,
@@ -218,72 +234,87 @@
             }
 
             
-            const backToTopBtn = document.createElement('button');
-            backToTopBtn.id = 'back-to-top';
-            backToTopBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg>';
-            backToTopBtn.setAttribute('aria-label', 'Back to top');
+            const backToTopBtn = document.createElement("button");
+            backToTopBtn.id = "back-to-top";
+            backToTopBtn.innerHTML =
+                '<svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg>';
+            backToTopBtn.setAttribute("aria-label", "Back to top");
             document.body.appendChild(backToTopBtn);
 
             function updateBackToTopButton() {
                 if (window.scrollY > 300) {
-                    backToTopBtn.style.display = 'flex';
+                    backToTopBtn.style.display = "flex";
                 } else {
-                    backToTopBtn.style.display = 'none';
+                    backToTopBtn.style.display = "none";
                 }
             }
 
-            window.addEventListener('scroll', updateBackToTopButton);
+            window.addEventListener("scroll", updateBackToTopButton);
             updateBackToTopButton();
 
-            backToTopBtn.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+            backToTopBtn.addEventListener("click", function () {
+                window.scrollTo({ top: 0, behavior: "smooth" });
             });
 
             
-            const codeBlocks = document.querySelectorAll('.highlight');
+            const codeBlocks = document.querySelectorAll(".highlight");
             codeBlocks.forEach(function (codeBlock) {
-                if (codeBlock.querySelector('.copy-button')) {
+                if (codeBlock.querySelector(".copy-button")) {
                     return;
                 }
 
-                const copyButton = document.createElement('button');
-                copyButton.className = 'copy-button';
-                copyButton.textContent = 'Copy';
-                copyButton.setAttribute('type', 'button');
+                const copyButton = document.createElement("button");
+                copyButton.className = "copy-button";
+                copyButton.textContent = "Copy";
+                copyButton.setAttribute("type", "button");
                 codeBlock.appendChild(copyButton);
 
-                copyButton.addEventListener('click', function () {
-                    const codeElement = codeBlock.querySelector('code');
-                    const codeText = codeElement ? codeElement.innerText : codeBlock.innerText.replace(/\b(Copy|Copied!)\b/g, '').trim();
+                copyButton.addEventListener("click", function () {
+                    const codeElement = codeBlock.querySelector("code");
+                    const codeText = codeElement
+                        ? codeElement.innerText
+                        : codeBlock.innerText
+                              .replace(/\b(Copy|Copied!)\b/g, "")
+                              .trim();
                     navigator.clipboard.writeText(codeText).then(function () {
-                        copyButton.classList.add('copied');
-                        copyButton.textContent = 'Copied!';
+                        copyButton.classList.add("copied");
+                        copyButton.textContent = "Copied!";
                         setTimeout(function () {
-                            copyButton.textContent = 'Copy';
-                            copyButton.classList.remove('copied');
+                            copyButton.textContent = "Copy";
+                            copyButton.classList.remove("copied");
                         }, 2000);
                     });
                 });
             });
 
-            const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-            const smallScreenQuery = window.matchMedia('(max-width: 760px)');
-            if (motionQuery.matches || smallScreenQuery.matches || document.getElementById('ambient-canvas')) {
+            const motionQuery = window.matchMedia(
+                "(prefers-reduced-motion: reduce)",
+            );
+            const smallScreenQuery = window.matchMedia("(max-width: 760px)");
+            if (
+                motionQuery.matches ||
+                smallScreenQuery.matches ||
+                document.getElementById("ambient-canvas")
+            ) {
                 return;
             }
 
-            const ambientCanvas = document.createElement('canvas');
-            ambientCanvas.id = 'ambient-canvas';
-            ambientCanvas.setAttribute('aria-hidden', 'true');
+            const ambientCanvas = document.createElement("canvas");
+            ambientCanvas.id = "ambient-canvas";
+            ambientCanvas.setAttribute("aria-hidden", "true");
             document.body.prepend(ambientCanvas);
 
-            const context = ambientCanvas.getContext('2d');
+            const context = ambientCanvas.getContext("2d");
             if (!context) {
                 ambientCanvas.remove();
                 return;
             }
 
-            const pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2, active: false };
+            const pointer = {
+                x: window.innerWidth / 2,
+                y: window.innerHeight / 2,
+                active: false,
+            };
             let particles = [];
             let canvasWidth = 0;
             let canvasHeight = 0;
@@ -291,20 +322,25 @@
             let ambientStopped = false;
 
             function isDarkTheme() {
-                return root.classList.contains('dark') || (!root.classList.contains('light') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                return (
+                    root.classList.contains("dark") ||
+                    (!root.classList.contains("light") &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches)
+                );
             }
 
             function getAmbientColors() {
                 if (isDarkTheme()) {
                     return {
-                        point: 'rgba(224, 224, 224, ',
-                        streak: 'rgba(224, 224, 224, '
+                        point: "rgba(224, 224, 224, ",
+                        streak: "rgba(224, 224, 224, ",
                     };
                 }
 
                 return {
-                    point: 'rgba(17, 17, 17, ',
-                    streak: 'rgba(17, 17, 17, '
+                    point: "rgba(17, 17, 17, ",
+                    streak: "rgba(17, 17, 17, ",
                 };
             }
 
@@ -318,22 +354,32 @@
                 canvasHeight = window.innerHeight;
                 ambientCanvas.width = Math.floor(canvasWidth * pixelRatio);
                 ambientCanvas.height = Math.floor(canvasHeight * pixelRatio);
-                ambientCanvas.style.width = canvasWidth + 'px';
-                ambientCanvas.style.height = canvasHeight + 'px';
+                ambientCanvas.style.width = canvasWidth + "px";
+                ambientCanvas.style.height = canvasHeight + "px";
                 context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-                const particleCount = Math.min(72, Math.max(36, Math.floor((canvasWidth * canvasHeight) / 19000)));
+                const particleCount = Math.min(
+                    72,
+                    Math.max(
+                        36,
+                        Math.floor((canvasWidth * canvasHeight) / 19000),
+                    ),
+                );
                 particles = Array.from({ length: particleCount }, function () {
                     const isStreak = Math.random() > 0.62;
                     return {
                         x: Math.random() * canvasWidth,
                         y: Math.random() * canvasHeight,
                         vx: -0.06 + Math.random() * 0.12,
-                        vy: isStreak ? 0.36 + Math.random() * 0.46 : 0.08 + Math.random() * 0.18,
+                        vy: isStreak
+                            ? 0.36 + Math.random() * 0.46
+                            : 0.08 + Math.random() * 0.18,
                         radius: 0.7 + Math.random() * 1.1,
                         length: isStreak ? 8 + Math.random() * 15 : 0,
-                        opacity: isStreak ? 0.08 + Math.random() * 0.09 : 0.14 + Math.random() * 0.16,
-                        drift: Math.random() * Math.PI * 2
+                        opacity: isStreak
+                            ? 0.08 + Math.random() * 0.09
+                            : 0.14 + Math.random() * 0.16,
+                        drift: Math.random() * Math.PI * 2,
                     };
                 });
             }
@@ -349,7 +395,8 @@
 
                 particles.forEach(function (particle) {
                     particle.drift += 0.008;
-                    particle.x += particle.vx + Math.sin(particle.drift) * 0.045;
+                    particle.x +=
+                        particle.vx + Math.sin(particle.drift) * 0.045;
                     particle.y += particle.vy;
 
                     if (particle.x < -20) particle.x = canvasWidth + 20;
@@ -361,57 +408,81 @@
 
                     let pointerBoost = 0;
                     if (pointer.active) {
-                        const pointerDistance = Math.hypot(particle.x - pointer.x, particle.y - pointer.y);
+                        const pointerDistance = Math.hypot(
+                            particle.x - pointer.x,
+                            particle.y - pointer.y,
+                        );
                         if (pointerDistance < 135) {
                             const force = (1 - pointerDistance / 135) * 0.55;
-                            particle.x += (particle.x - pointer.x) * 0.006 * force;
-                            particle.y += (particle.y - pointer.y) * 0.004 * force;
+                            particle.x +=
+                                (particle.x - pointer.x) * 0.006 * force;
+                            particle.y +=
+                                (particle.y - pointer.y) * 0.004 * force;
                             pointerBoost = force * 0.18;
                         }
                     }
 
                     if (particle.length > 0) {
-                        context.strokeStyle = colors.streak + Math.min(particle.opacity + pointerBoost, 0.28) + ')';
+                        context.strokeStyle =
+                            colors.streak +
+                            Math.min(particle.opacity + pointerBoost, 0.28) +
+                            ")";
                         context.beginPath();
                         context.moveTo(particle.x, particle.y);
-                        context.lineTo(particle.x - particle.length * 0.18, particle.y + particle.length);
+                        context.lineTo(
+                            particle.x - particle.length * 0.18,
+                            particle.y + particle.length,
+                        );
                         context.stroke();
                     } else {
-                        context.fillStyle = colors.point + Math.min(particle.opacity + pointerBoost, 0.36) + ')';
+                        context.fillStyle =
+                            colors.point +
+                            Math.min(particle.opacity + pointerBoost, 0.36) +
+                            ")";
                         context.beginPath();
-                        context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                        context.arc(
+                            particle.x,
+                            particle.y,
+                            particle.radius,
+                            0,
+                            Math.PI * 2,
+                        );
                         context.fill();
                     }
                 });
 
-                animationFrame = window.requestAnimationFrame(animateAmbientParticles);
+                animationFrame = window.requestAnimationFrame(
+                    animateAmbientParticles,
+                );
             }
 
-            window.addEventListener('mousemove', function (event) {
+            window.addEventListener("mousemove", function (event) {
                 pointer.x = event.clientX;
                 pointer.y = event.clientY;
                 pointer.active = true;
             });
 
-            window.addEventListener('mouseleave', function () {
+            window.addEventListener("mouseleave", function () {
                 pointer.active = false;
             });
 
-            window.addEventListener('resize', resizeAmbientCanvas);
+            window.addEventListener("resize", resizeAmbientCanvas);
 
             resizeAmbientCanvas();
-            animationFrame = window.requestAnimationFrame(animateAmbientParticles);
+            animationFrame = window.requestAnimationFrame(
+                animateAmbientParticles,
+            );
 
             function stopAmbientParticles() {
                 ambientStopped = true;
                 window.cancelAnimationFrame(animationFrame);
-                window.removeEventListener('resize', resizeAmbientCanvas);
+                window.removeEventListener("resize", resizeAmbientCanvas);
                 ambientCanvas.remove();
             }
 
             function addMediaQueryListener(query, callback) {
                 if (query.addEventListener) {
-                    query.addEventListener('change', callback);
+                    query.addEventListener("change", callback);
                 } else if (query.addListener) {
                     query.addListener(callback);
                 }

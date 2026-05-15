@@ -12,6 +12,7 @@ defaultContentLanguageInSubdir = true  # 开启后 URL 结构为 /zh/ 和 /en/
 publishDir = "docs"
 
 [params]
+    favicon = "favicon.svg"
     footer = "&copy; Feng Sang 2024-{Year}"
     [params.social]
         github = "https://github.com/isangfeng"
@@ -78,7 +79,7 @@ unsafe = true  # 允许使用 HTML 标签
         name = "Homepage"
         url = "/en/"      # 绝对路径
         weight = 1
-    
+
     [[languages.en.menu.main]]
         name = "Blogs"
         url = "/en/posts/"   # 绝对路径

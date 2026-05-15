@@ -51,6 +51,9 @@
     {{ partial "head_highlightjs" . }}
     <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
     <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
+    {{ with .Site.Params.favicon }}
+    <link rel="icon" href="{{ . | relURL }}" type="image/svg+xml" />
+    {{ end }}
     {{ partial "head_custom.html" . }}
   </head>
 

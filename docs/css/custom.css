@@ -84,7 +84,22 @@
         color: #aaa;
     }
 
-    html:not(.light) .social-links a:hover {
+    html:not(.light) .social-links a,
+    html:not(.light) .social-links a:visited,
+    html:not(.light) .social-links a:focus,
+    html:not(.light) .social-links a:focus-visible,
+    html:not(.light) .social-links a:focus-within,
+    html:not(.light) .social-links a:active {
+        color: #ffffff;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    html:not(.light) .social-links a:focus-visible {
+        outline: 2px solid rgba(224, 224, 224, 0.45);
+        outline-offset: 2px;
+    }
+
+    html:not(.light) .social-links a:hover:not(.hover-disabled) {
         background: #e0e0e0;
         color: #121212;
     }
@@ -97,6 +112,10 @@
     html:not(.light) #menu-label:hover,
     html:not(.light) #menu-label:focus {
         border-color: #aaa;
+    }
+
+    html:not(.light) #menu-label:active {
+        border-color: #555;
     }
 }
 
@@ -185,7 +204,23 @@ html.dark .subtitle {
     color: #aaa;
 }
 
-html.dark .social-links a:hover {
+/* Social icons: override global link :focus / :focus-visible cyan (#4fc3f7) */
+html.dark .social-links a,
+html.dark .social-links a:visited,
+html.dark .social-links a:focus,
+html.dark .social-links a:focus-visible,
+html.dark .social-links a:focus-within,
+html.dark .social-links a:active {
+    color: #ffffff;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html.dark .social-links a:focus-visible {
+    outline: 2px solid rgba(224, 224, 224, 0.45);
+    outline-offset: 2px;
+}
+
+html.dark .social-links a:hover:not(.hover-disabled) {
     background: #e0e0e0;
     color: #121212;
 }
@@ -198,6 +233,10 @@ html.dark #menu-label {
 html.dark #menu-label:hover,
 html.dark #menu-label:focus {
     border-color: #aaa;
+}
+
+html.dark #menu-label:active {
+    border-color: #e0e0e0;
 }
 
 @media (hover: hover) {
@@ -275,7 +314,7 @@ html.light .subtitle {
     color: #666;
 }
 
-html.light .social-links a:hover {
+html.light .social-links a:hover:not(.hover-disabled) {
     background: #111;
     color: #fff;
 }
@@ -288,6 +327,10 @@ html.light #menu-label {
 html.light #menu-label:hover,
 html.light #menu-label:focus {
     border-color: #888;
+}
+
+html.light #menu-label:active {
+    border-color: #333;
 }
 
 @media (hover: hover) {

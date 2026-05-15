@@ -37,6 +37,9 @@
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
+    
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    
     <style>
     .social-links {
         display: flex;
@@ -59,7 +62,7 @@
             color 0.18s ease;
     }
 
-    .social-links a:hover {
+    .social-links a:hover:not(.hover-disabled) {
         background: #111;
         color: #fff;
     }
@@ -119,7 +122,17 @@
         outline-offset: 2px;
     }
 
-    .theme-toggle-btn svg {
+    .theme-toggle-btn:active {
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: #111 !important;
+    }
+
+    html.dark .theme-toggle-btn:active {
+        background: #121212 !important;
+        color: #e0e0e0 !important;
+    }
+
+    html.light .theme-toggle-btn svg {
         display: block;
         width: 1rem;
         height: 1rem;
@@ -143,31 +156,48 @@
 
     html.dark .theme-toggle-btn .moon-icon {
         opacity: 1;
+        fill: #ffffff;
     }
 
     html.dark .theme-toggle-btn {
-        background: #121212;
-        color: #e0e0e0;
+        background: transparent;
+        border-color: #ffffff;
+        color: #ffffff;
     }
 
     @media (hover: hover) {
         html.dark .theme-toggle-btn:hover {
-            background: #e0e0e0;
+            background: #ffffff;
             color: #121212;
+            border-color: #121212;
+        }
+
+        html.dark .theme-toggle-btn:hover .moon-icon {
+            fill: #121212;
         }
     }
 
     @media (prefers-color-scheme: dark) {
         html:not(.light) .theme-toggle-btn {
-            background: #121212;
-            color: #e0e0e0;
+            background: transparent;
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+        html:not(.light) .theme-toggle-btn .moon-icon {
+            fill: #ffffff;
         }
     }
 
     @media (prefers-color-scheme: dark) and (hover: hover) {
         html:not(.light) .theme-toggle-btn:hover {
-            background: #e0e0e0;
+            background: #ffffff;
             color: #121212;
+            border-color: #121212;
+        }
+
+        html:not(.light) .theme-toggle-btn:hover .moon-icon {
+            fill: #121212;
         }
     }
 
@@ -202,7 +232,250 @@
             root.classList.add(savedTheme);
         }
 
+        function normalizePathForCompare(pathname) {
+            if (pathname.length > 1 && pathname.endsWith("/")) {
+                return pathname.slice(0, -1);
+            }
+            return pathname;
+        }
+
+        function syncMenuActiveState(pathname) {
+            const target = normalizePathForCompare(pathname);
+            document.querySelectorAll(".masthead .menu li").forEach(function (li) {
+                li.classList.remove("active");
+                const a = li.querySelector("a[href]");
+                if (!a) {
+                    return;
+                }
+                let linkPath;
+                try {
+                    linkPath = normalizePathForCompare(
+                        new URL(a.getAttribute("href"), window.location.origin)
+                            .pathname,
+                    );
+                } catch (_) {
+                    return;
+                }
+                if (linkPath === target) {
+                    li.classList.add("active");
+                }
+            });
+        }
+
+        function activateScriptsIn(container) {
+            container.querySelectorAll("script").forEach(function (oldScript) {
+                const s = document.createElement("script");
+                for (let i = 0; i < oldScript.attributes.length; i++) {
+                    const attr = oldScript.attributes[i];
+                    s.setAttribute(attr.name, attr.value);
+                }
+                s.textContent = oldScript.textContent;
+                oldScript.parentNode.replaceChild(s, oldScript);
+            });
+        }
+
+        function enhanceCodeBlockCopyButtons() {
+            document.querySelectorAll(".highlight").forEach(function (codeBlock) {
+                if (codeBlock.querySelector(".copy-button")) {
+                    return;
+                }
+
+                const copyButton = document.createElement("button");
+                copyButton.className = "copy-button";
+                copyButton.textContent = "Copy";
+                copyButton.setAttribute("type", "button");
+                codeBlock.appendChild(copyButton);
+
+                copyButton.addEventListener("click", function () {
+                    const codeElement = codeBlock.querySelector("code");
+                    const codeText = codeElement
+                        ? codeElement.innerText
+                        : codeBlock.innerText
+                              .replace(/\b(Copy|Copied!)\b/g, "")
+                              .trim();
+                    navigator.clipboard.writeText(codeText).then(function () {
+                        copyButton.classList.add("copied");
+                        copyButton.textContent = "Copied!";
+                        setTimeout(function () {
+                            copyButton.textContent = "Copy";
+                            copyButton.classList.remove("copied");
+                        }, 2000);
+                    });
+                });
+            });
+        }
+
+        function applySoftNavigation(fetchedDoc, displayUrl) {
+            const nextMain = fetchedDoc.querySelector("article.main");
+            const currentMain = document.querySelector("article.main");
+            if (!nextMain || !currentMain) {
+                return false;
+            }
+
+            const nextBody = fetchedDoc.body;
+            if (nextBody) {
+                document.body.className = nextBody.className;
+            }
+
+            if (fetchedDoc.title) {
+                document.title = fetchedDoc.title;
+            }
+
+            currentMain.innerHTML = nextMain.innerHTML;
+            activateScriptsIn(currentMain);
+            enhanceCodeBlockCopyButtons();
+
+            try {
+                const u = new URL(displayUrl, window.location.href);
+                syncMenuActiveState(u.pathname);
+            } catch (_) {
+                syncMenuActiveState(window.location.pathname);
+            }
+
+            window.scrollTo(0, 0);
+
+            requestAnimationFrame(function () {
+                const ae = document.activeElement;
+                if (ae && ae.closest && ae.closest(".masthead")) {
+                    ae.blur();
+                }
+            });
+
+            window.dispatchEvent(
+                new CustomEvent("site:softnav", {
+                    detail: { url: displayUrl },
+                }),
+            );
+
+            return true;
+        }
+
+        function shouldSoftNavigate(anchor, event) {
+            if (!anchor || anchor.tagName !== "A") {
+                return false;
+            }
+            if (event.defaultPrevented) {
+                return false;
+            }
+            if (event.button !== 0) {
+                return false;
+            }
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+                return false;
+            }
+            const targetAttr = anchor.getAttribute("target");
+            if (targetAttr && targetAttr !== "_self") {
+                return false;
+            }
+            if (anchor.hasAttribute("download")) {
+                return false;
+            }
+            const rawHref = anchor.getAttribute("href");
+            if (
+                !rawHref ||
+                rawHref.startsWith("#") ||
+                rawHref.startsWith("javascript:") ||
+                rawHref.startsWith("mailto:") ||
+                rawHref.startsWith("tel:") ||
+                rawHref.startsWith("data:")
+            ) {
+                return false;
+            }
+            let dest;
+            try {
+                dest = new URL(anchor.href);
+            } catch (_) {
+                return false;
+            }
+            if (dest.origin !== window.location.origin) {
+                return false;
+            }
+            const here = new URL(window.location.href);
+            if (
+                dest.pathname === here.pathname &&
+                dest.search === here.search &&
+                dest.hash !== here.hash
+            ) {
+                return false;
+            }
+            if (dest.pathname === here.pathname && dest.search === here.search && dest.hash === here.hash) {
+                return false;
+            }
+            return dest;
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener(
+                "click",
+                function (event) {
+                    const anchor = event.target && event.target.closest
+                        ? event.target.closest("a[href]")
+                        : null;
+                    const dest = shouldSoftNavigate(anchor, event);
+                    if (!dest) {
+                        return;
+                    }
+
+                    const fetchUrl = dest.pathname + dest.search;
+                    event.preventDefault();
+
+                    fetch(fetchUrl, {
+                        credentials: "same-origin",
+                        headers: { Accept: "text/html" },
+                    })
+                        .then(function (response) {
+                            if (!response.ok) {
+                                throw new Error("fetch failed");
+                            }
+                            return response.text();
+                        })
+                        .then(function (html) {
+                            const parser = new DOMParser();
+                            const fetchedDoc = parser.parseFromString(
+                                html,
+                                "text/html",
+                            );
+                            if (!applySoftNavigation(fetchedDoc, dest.href)) {
+                                window.location.assign(dest.href);
+                                return;
+                            }
+                            window.history.pushState(
+                                { softNav: true, url: dest.href },
+                                "",
+                                dest.pathname + dest.search + dest.hash,
+                            );
+                        })
+                        .catch(function () {
+                            window.location.assign(dest.href);
+                        });
+                },
+                true,
+            );
+
+            window.addEventListener("popstate", function () {
+                const url = window.location.pathname + window.location.search;
+                fetch(url, {
+                    credentials: "same-origin",
+                    headers: { Accept: "text/html" },
+                })
+                    .then(function (response) {
+                        if (!response.ok) {
+                            throw new Error("fetch failed");
+                        }
+                        return response.text();
+                    })
+                    .then(function (html) {
+                        const parser = new DOMParser();
+                        const fetchedDoc = parser.parseFromString(html, "text/html");
+                        if (!applySoftNavigation(fetchedDoc, window.location.href)) {
+                            window.location.reload();
+                        }
+                    })
+                    .catch(function () {
+                        window.location.reload();
+                    });
+            });
+
             const themeToggle = document.getElementById("theme-toggle");
             if (themeToggle) {
                 themeToggle.addEventListener("click", function () {
@@ -241,34 +514,47 @@
                 window.scrollTo({ top: 0, behavior: "smooth" });
             });
 
+            enhanceCodeBlockCopyButtons();
+
             
-            const codeBlocks = document.querySelectorAll(".highlight");
-            codeBlocks.forEach(function (codeBlock) {
-                if (codeBlock.querySelector(".copy-button")) {
-                    return;
-                }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            const socialLinkEls = document.querySelectorAll(".social-links a");
 
-                const copyButton = document.createElement("button");
-                copyButton.className = "copy-button";
-                copyButton.textContent = "Copy";
-                copyButton.setAttribute("type", "button");
-                codeBlock.appendChild(copyButton);
-
-                copyButton.addEventListener("click", function () {
-                    const codeElement = codeBlock.querySelector("code");
-                    const codeText = codeElement
-                        ? codeElement.innerText
-                        : codeBlock.innerText
-                              .replace(/\b(Copy|Copied!)\b/g, "")
-                              .trim();
-                    navigator.clipboard.writeText(codeText).then(function () {
-                        copyButton.classList.add("copied");
-                        copyButton.textContent = "Copied!";
-                        setTimeout(function () {
-                            copyButton.textContent = "Copy";
-                            copyButton.classList.remove("copied");
-                        }, 2000);
+            socialLinkEls.forEach(function (link) {
+                link.addEventListener("click", function () {
+                    link.blur();
+                    socialLinkEls.forEach(function (l) {
+                        l.classList.add("hover-disabled");
                     });
+                });
+            });
+
+            document.addEventListener(
+                "pointermove",
+                function () {
+                    socialLinkEls.forEach(function (l) {
+                        l.classList.remove("hover-disabled");
+                    });
+                },
+                { passive: true },
+            );
+
+            
+            const menuCheck = document.getElementById("menu-check");
+            const menuLinks = document.querySelectorAll(".masthead .menu a");
+            menuLinks.forEach((link) => {
+                link.addEventListener("click", function () {
+                    if (menuCheck) {
+                        menuCheck.checked = false;
+                    }
                 });
             });
 

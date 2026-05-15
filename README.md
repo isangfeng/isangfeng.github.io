@@ -15,7 +15,9 @@ To generate html files for deploying.
 ```bash
 quarto render # convert qmd file to md file.
 hugo # convert md file to html file.
+# hugo server # will generate html with localhost.
 ```
+
 
 Commit and sync into github with docs folder for github's action.
 

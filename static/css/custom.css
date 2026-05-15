@@ -420,15 +420,14 @@ html.light code {
     color: #111;
     cursor: pointer;
     z-index: 999;
-    transition: all 0.3s ease;
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-#back-to-top:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: none;
 }
 
 #back-to-top svg {
@@ -445,6 +444,37 @@ html.dark #back-to-top {
 html.light #back-to-top {
     background: rgba(255, 255, 255, 0.95);
     color: #111;
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not(.light) #back-to-top {
+        background: rgba(50, 50, 50, 0.95);
+        color: #e0e0e0;
+    }
+}
+
+/* Hover rules after theme base styles so they win at equal specificity. */
+@media (hover: hover) {
+    #back-to-top:hover {
+        background: #111;
+        color: #fff;
+        transform: none;
+    }
+
+    html.light #back-to-top:hover {
+        background: #111;
+        color: #fff;
+    }
+
+    html.dark #back-to-top:hover {
+        background: #e0e0e0;
+        color: #121212;
+    }
+
+    html:not(.light) #back-to-top:hover {
+        background: #e0e0e0;
+        color: #121212;
+    }
 }
 
 @media (max-width: 760px) {

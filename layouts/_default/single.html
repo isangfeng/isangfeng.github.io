@@ -38,6 +38,8 @@
 {{ .Content }}
 
 {{ if not .Params.disableComments }}
+<hr>
+{{ $.Scratch.Set "suppress_footer_hr" true }}
     {{ partial "comments.html" . }}
 {{ end }}
 

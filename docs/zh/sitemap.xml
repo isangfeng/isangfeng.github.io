@@ -39,6 +39,19 @@
                 href="https://isangfeng.github.io/zh/tags/"
                 />
   </url><url>
+    <loc>https://isangfeng.github.io/zh/categories/</loc>
+    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://isangfeng.github.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://isangfeng.github.io/zh/categories/"
+                />
+  </url><url>
     <loc>https://isangfeng.github.io/zh/about/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -54,19 +67,6 @@
   </url><url>
     <loc>https://isangfeng.github.io/zh/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://isangfeng.github.io/zh/categories/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://isangfeng.github.io/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://isangfeng.github.io/zh/categories/"
-                />
   </url><url>
     <loc>https://isangfeng.github.io/zh/posts/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>

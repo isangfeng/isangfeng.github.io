@@ -3,7 +3,6 @@
 # ==========================================
 baseURL = 'https://isangfeng.github.io/'
 title = 'Feng Sang | 桑峰'
-theme = 'Ivy'
 
 # 语言核心设置
 defaultContentLanguage = "zh"          # 建议将中文设为默认，更符合你的主要受众

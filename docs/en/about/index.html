@@ -4,7 +4,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <title>About - Feng Sang | 桑峰</title>
     <meta property="og:title" content="About - Feng Sang | 桑峰">
@@ -30,8 +29,6 @@
     
 
     
-    
-
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -212,6 +209,31 @@
         height: 100% !important;
         pointer-events: none;
         z-index: 0;
+        opacity: 1;
+    }
+
+     
+
+     
+
+    .scroll-light {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 120vh;
+        pointer-events: none;
+        z-index: 9997;
+        opacity: 0;
+        transition: opacity 420ms linear, transform 420ms linear;
+        transform: translateY(0);
+        background: radial-gradient(60% 40% at 50% 8%, rgba(255,255,255,0.14), rgba(255,255,255,0.06) 25%, transparent 45%);
+        mix-blend-mode: overlay;
+    }
+
+    html.dark .scroll-light {
+        background: radial-gradient(60% 40% at 50% 8%, rgba(255,255,255,0.06), rgba(255,255,255,0.03) 25%, transparent 45%);
+        mix-blend-mode: screen;
     }
 
     #menu-label,
@@ -241,21 +263,16 @@
             document.querySelectorAll(".masthead .menu li").forEach(function (li) {
                 li.classList.remove("active");
                 const a = li.querySelector("a[href]");
-                if (!a) {
-                    return;
-                }
+                if (!a) return;
                 let linkPath;
                 try {
                     linkPath = normalizePathForCompare(
-                        new URL(a.getAttribute("href"), window.location.origin)
-                            .pathname,
+                        new URL(a.getAttribute("href"), window.location.origin).pathname,
                     );
                 } catch (_) {
                     return;
                 }
-                if (linkPath === target) {
-                    li.classList.add("active");
-                }
+                if (linkPath === target) li.classList.add("active");
             });
         }
 
@@ -273,23 +290,15 @@
 
         function enhanceCodeBlockCopyButtons() {
             document.querySelectorAll(".highlight").forEach(function (codeBlock) {
-                if (codeBlock.querySelector(".copy-button")) {
-                    return;
-                }
-
+                if (codeBlock.querySelector(".copy-button")) return;
                 const copyButton = document.createElement("button");
                 copyButton.className = "copy-button";
                 copyButton.textContent = "Copy";
                 copyButton.setAttribute("type", "button");
                 codeBlock.appendChild(copyButton);
-
                 copyButton.addEventListener("click", function () {
                     const codeElement = codeBlock.querySelector("code");
-                    const codeText = codeElement
-                        ? codeElement.innerText
-                        : codeBlock.innerText
-                              .replace(/\b(Copy|Copied!)\b/g, "")
-                              .trim();
+                    const codeText = codeElement ? codeElement.innerText : codeBlock.innerText.replace(/\b(Copy|Copied!)\b/g, "").trim();
                     navigator.clipboard.writeText(codeText).then(function () {
                         copyButton.classList.add("copied");
                         copyButton.textContent = "Copied!";
@@ -305,18 +314,11 @@
         function applySoftNavigation(fetchedDoc, displayUrl) {
             const nextMain = fetchedDoc.querySelector("article.main");
             const currentMain = document.querySelector("article.main");
-            if (!nextMain || !currentMain) {
-                return false;
-            }
+            if (!nextMain || !currentMain) return false;
 
             const nextBody = fetchedDoc.body;
-            if (nextBody) {
-                document.body.className = nextBody.className;
-            }
-
-            if (fetchedDoc.title) {
-                document.title = fetchedDoc.title;
-            }
+            if (nextBody) document.body.className = nextBody.className;
+            if (fetchedDoc.title) document.title = fetchedDoc.title;
 
             currentMain.innerHTML = nextMain.innerHTML;
             activateScriptsIn(currentMain);
@@ -330,147 +332,65 @@
             }
 
             window.scrollTo(0, 0);
-
             requestAnimationFrame(function () {
                 const ae = document.activeElement;
-                if (ae && ae.closest && ae.closest(".masthead")) {
-                    ae.blur();
-                }
+                if (ae && ae.closest && ae.closest(".masthead")) ae.blur();
             });
 
-            window.dispatchEvent(
-                new CustomEvent("site:softnav", {
-                    detail: { url: displayUrl },
-                }),
-            );
-
+            window.dispatchEvent(new CustomEvent("site:softnav", { detail: { url: displayUrl } }));
             return true;
         }
 
         function shouldSoftNavigate(anchor, event) {
-            if (!anchor || anchor.tagName !== "A") {
-                return false;
-            }
-            if (event.defaultPrevented) {
-                return false;
-            }
-            if (event.button !== 0) {
-                return false;
-            }
-            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
-                return false;
-            }
+            if (!anchor || anchor.tagName !== "A") return false;
+            if (event.defaultPrevented) return false;
+            if (event.button !== 0) return false;
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
             const targetAttr = anchor.getAttribute("target");
-            if (targetAttr && targetAttr !== "_self") {
-                return false;
-            }
-            if (anchor.hasAttribute("download")) {
-                return false;
-            }
+            if (targetAttr && targetAttr !== "_self") return false;
+            if (anchor.hasAttribute("download")) return false;
             const rawHref = anchor.getAttribute("href");
-            if (
-                !rawHref ||
-                rawHref.startsWith("#") ||
-                rawHref.startsWith("javascript:") ||
-                rawHref.startsWith("mailto:") ||
-                rawHref.startsWith("tel:") ||
-                rawHref.startsWith("data:")
-            ) {
-                return false;
-            }
+            if (!rawHref || rawHref.startsWith("#") || rawHref.startsWith("javascript:") || rawHref.startsWith("mailto:") || rawHref.startsWith("tel:") || rawHref.startsWith("data:")) return false;
             let dest;
-            try {
-                dest = new URL(anchor.href);
-            } catch (_) {
-                return false;
-            }
-            if (dest.origin !== window.location.origin) {
-                return false;
-            }
+            try { dest = new URL(anchor.href); } catch (_) { return false; }
+            if (dest.origin !== window.location.origin) return false;
             const here = new URL(window.location.href);
-            if (
-                dest.pathname === here.pathname &&
-                dest.search === here.search &&
-                dest.hash !== here.hash
-            ) {
-                return false;
-            }
-            if (dest.pathname === here.pathname && dest.search === here.search && dest.hash === here.hash) {
-                return false;
-            }
+            const hereLang = (here.pathname.split('/').filter(Boolean)[0] || '');
+            const destLang = (dest.pathname.split('/').filter(Boolean)[0] || '');
+            if (hereLang !== destLang) return false;
+            if (dest.pathname === here.pathname && dest.search === here.search && dest.hash !== here.hash) return false;
+            if (dest.pathname === here.pathname && dest.search === here.search && dest.hash === here.hash) return false;
             return dest;
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            document.addEventListener(
-                "click",
-                function (event) {
-                    const anchor = event.target && event.target.closest
-                        ? event.target.closest("a[href]")
-                        : null;
-                    const dest = shouldSoftNavigate(anchor, event);
-                    if (!dest) {
-                        return;
-                    }
-
-                    const fetchUrl = dest.pathname + dest.search;
-                    event.preventDefault();
-
-                    fetch(fetchUrl, {
-                        credentials: "same-origin",
-                        headers: { Accept: "text/html" },
-                    })
-                        .then(function (response) {
-                            if (!response.ok) {
-                                throw new Error("fetch failed");
-                            }
-                            return response.text();
-                        })
-                        .then(function (html) {
-                            const parser = new DOMParser();
-                            const fetchedDoc = parser.parseFromString(
-                                html,
-                                "text/html",
-                            );
-                            if (!applySoftNavigation(fetchedDoc, dest.href)) {
-                                window.location.assign(dest.href);
-                                return;
-                            }
-                            window.history.pushState(
-                                { softNav: true, url: dest.href },
-                                "",
-                                dest.pathname + dest.search + dest.hash,
-                            );
-                        })
-                        .catch(function () {
-                            window.location.assign(dest.href);
-                        });
-                },
-                true,
-            );
-
-            window.addEventListener("popstate", function () {
-                const url = window.location.pathname + window.location.search;
-                fetch(url, {
-                    credentials: "same-origin",
-                    headers: { Accept: "text/html" },
-                })
-                    .then(function (response) {
-                        if (!response.ok) {
-                            throw new Error("fetch failed");
-                        }
-                        return response.text();
-                    })
+            document.addEventListener("click", function (event) {
+                const anchor = event.target && event.target.closest ? event.target.closest("a[href]") : null;
+                const dest = shouldSoftNavigate(anchor, event);
+                if (!dest) return;
+                const fetchUrl = dest.pathname + dest.search;
+                event.preventDefault();
+                fetch(fetchUrl, { credentials: "same-origin", headers: { Accept: "text/html" } })
+                    .then(function (response) { if (!response.ok) throw new Error("fetch failed"); return response.text(); })
                     .then(function (html) {
                         const parser = new DOMParser();
                         const fetchedDoc = parser.parseFromString(html, "text/html");
-                        if (!applySoftNavigation(fetchedDoc, window.location.href)) {
-                            window.location.reload();
-                        }
+                        if (!applySoftNavigation(fetchedDoc, dest.href)) { window.location.assign(dest.href); return; }
+                        window.history.pushState({ softNav: true, url: dest.href }, "", dest.pathname + dest.search + dest.hash);
                     })
-                    .catch(function () {
-                        window.location.reload();
-                    });
+                    .catch(function () { window.location.assign(dest.href); });
+            }, true);
+
+            window.addEventListener("popstate", function () {
+                const url = window.location.pathname + window.location.search;
+                fetch(url, { credentials: "same-origin", headers: { Accept: "text/html" } })
+                    .then(function (response) { if (!response.ok) throw new Error("fetch failed"); return response.text(); })
+                    .then(function (html) {
+                        const parser = new DOMParser();
+                        const fetchedDoc = parser.parseFromString(html, "text/html");
+                        if (!applySoftNavigation(fetchedDoc, window.location.href)) window.location.reload();
+                    })
+                    .catch(function () { window.location.reload(); });
             });
 
             const themeToggle = document.getElementById("theme-toggle");
@@ -491,282 +411,64 @@
             
             const backToTopBtn = document.createElement("button");
             backToTopBtn.id = "back-to-top";
-            backToTopBtn.innerHTML =
-                '<svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg>';
+            backToTopBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg>';
             backToTopBtn.setAttribute("aria-label", "Back to top");
             document.body.appendChild(backToTopBtn);
-
-            function updateBackToTopButton() {
-                if (window.scrollY > 300) {
-                    backToTopBtn.style.display = "flex";
-                } else {
-                    backToTopBtn.style.display = "none";
-                }
-            }
-
-            window.addEventListener("scroll", updateBackToTopButton);
-            updateBackToTopButton();
-
-            backToTopBtn.addEventListener("click", function () {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
+            function updateBackToTopButton() { backToTopBtn.style.display = window.scrollY > 300 ? "flex" : "none"; }
+            window.addEventListener("scroll", updateBackToTopButton); updateBackToTopButton();
+            backToTopBtn.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
 
             enhanceCodeBlockCopyButtons();
 
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
             const socialLinkEls = document.querySelectorAll(".social-links a");
-
             socialLinkEls.forEach(function (link) {
                 link.addEventListener("click", function () {
                     link.blur();
-                    socialLinkEls.forEach(function (l) {
-                        l.classList.add("hover-disabled");
-                    });
+                    socialLinkEls.forEach(function (l) { l.classList.add("hover-disabled"); });
                 });
             });
-
-            document.addEventListener(
-                "pointermove",
-                function () {
-                    socialLinkEls.forEach(function (l) {
-                        l.classList.remove("hover-disabled");
-                    });
-                },
-                { passive: true },
-            );
+            document.addEventListener("pointermove", function () { socialLinkEls.forEach(function (l) { l.classList.remove("hover-disabled"); }); }, { passive: true });
 
             
             const menuCheck = document.getElementById("menu-check");
             const menuLinks = document.querySelectorAll(".masthead .menu a");
-            menuLinks.forEach((link) => {
-                link.addEventListener("click", function () {
-                    if (menuCheck) {
-                        menuCheck.checked = false;
-                    }
-                });
-            });
+            menuLinks.forEach((link) => link.addEventListener("click", function () { if (menuCheck) menuCheck.checked = false; }));
 
-            const motionQuery = window.matchMedia(
-                "(prefers-reduced-motion: reduce)",
-            );
+            
+            const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
             const smallScreenQuery = window.matchMedia("(max-width: 760px)");
-            if (
-                motionQuery.matches ||
-                smallScreenQuery.matches ||
-                document.getElementById("ambient-canvas")
-            ) {
-                return;
-            }
+            const shouldSkipAmbient = motionQuery.matches || smallScreenQuery.matches;
 
-            const ambientCanvas = document.createElement("canvas");
-            ambientCanvas.id = "ambient-canvas";
-            ambientCanvas.setAttribute("aria-hidden", "true");
-            document.body.prepend(ambientCanvas);
-
-            const context = ambientCanvas.getContext("2d");
-            if (!context) {
-                ambientCanvas.remove();
-                return;
-            }
-
-            const pointer = {
-                x: window.innerWidth / 2,
-                y: window.innerHeight / 2,
-                active: false,
-            };
-            let particles = [];
-            let canvasWidth = 0;
-            let canvasHeight = 0;
-            let animationFrame = 0;
-            let ambientStopped = false;
-
-            function isDarkTheme() {
-                return (
-                    root.classList.contains("dark") ||
-                    (!root.classList.contains("light") &&
-                        window.matchMedia("(prefers-color-scheme: dark)")
-                            .matches)
-                );
-            }
-
-            function getAmbientColors() {
-                if (isDarkTheme()) {
-                    return {
-                        point: "rgba(224, 224, 224, ",
-                        streak: "rgba(224, 224, 224, ",
-                    };
+            let scrollLight = null;
+            if (!shouldSkipAmbient) {
+                if (!document.querySelector('.scroll-light')) {
+                    scrollLight = document.createElement('div');
+                    scrollLight.className = 'scroll-light';
+                    scrollLight.setAttribute('aria-hidden', 'true');
+                    document.body.appendChild(scrollLight);
+                } else {
+                    scrollLight = document.querySelector('.scroll-light');
                 }
 
-                return {
-                    point: "rgba(17, 17, 17, ",
-                    streak: "rgba(17, 17, 17, ",
-                };
-            }
-
-            function resizeAmbientCanvas() {
-                if (ambientStopped) {
-                    return;
+                let scrollRaf = null;
+                function updateScrollLight() {
+                    if (!scrollLight) return;
+                    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+                    const prog = Math.max(0, Math.min(1, window.scrollY / max));
+                    const opacity = Math.min(0.35, prog * 0.6);
+                    const ty = -prog * 12;
+                    scrollLight.style.opacity = String(opacity);
+                    scrollLight.style.transform = `translateY(${ty}vh)`;
                 }
+                function onScroll() { if (scrollRaf) return; scrollRaf = window.requestAnimationFrame(function () { updateScrollLight(); scrollRaf = null; }); }
+                window.addEventListener('scroll', onScroll, { passive: true }); updateScrollLight();
 
-                const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-                canvasWidth = window.innerWidth;
-                canvasHeight = window.innerHeight;
-                ambientCanvas.width = Math.floor(canvasWidth * pixelRatio);
-                ambientCanvas.height = Math.floor(canvasHeight * pixelRatio);
-                ambientCanvas.style.width = canvasWidth + "px";
-                ambientCanvas.style.height = canvasHeight + "px";
-                context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-
-                const particleCount = Math.min(
-                    72,
-                    Math.max(
-                        36,
-                        Math.floor((canvasWidth * canvasHeight) / 19000),
-                    ),
-                );
-                particles = Array.from({ length: particleCount }, function () {
-                    const isStreak = Math.random() > 0.62;
-                    return {
-                        x: Math.random() * canvasWidth,
-                        y: Math.random() * canvasHeight,
-                        vx: -0.06 + Math.random() * 0.12,
-                        vy: isStreak
-                            ? 0.36 + Math.random() * 0.46
-                            : 0.08 + Math.random() * 0.18,
-                        radius: 0.7 + Math.random() * 1.1,
-                        length: isStreak ? 8 + Math.random() * 15 : 0,
-                        opacity: isStreak
-                            ? 0.08 + Math.random() * 0.09
-                            : 0.14 + Math.random() * 0.16,
-                        drift: Math.random() * Math.PI * 2,
-                    };
-                });
+                function removeAmbient() { window.removeEventListener('scroll', onScroll); const s = document.querySelector('.scroll-light'); if (s) s.remove(); }
+                function mediaListener(e) { if (e.matches) removeAmbient(); }
+                if (motionQuery.addEventListener) motionQuery.addEventListener('change', mediaListener); else motionQuery.addListener(mediaListener);
+                if (smallScreenQuery.addEventListener) smallScreenQuery.addEventListener('change', mediaListener); else smallScreenQuery.addListener(mediaListener);
             }
-
-            function animateAmbientParticles() {
-                if (ambientStopped) {
-                    return;
-                }
-
-                const colors = getAmbientColors();
-                context.clearRect(0, 0, canvasWidth, canvasHeight);
-                context.lineWidth = 1;
-
-                particles.forEach(function (particle) {
-                    particle.drift += 0.008;
-                    particle.x +=
-                        particle.vx + Math.sin(particle.drift) * 0.045;
-                    particle.y += particle.vy;
-
-                    if (particle.x < -20) particle.x = canvasWidth + 20;
-                    if (particle.x > canvasWidth + 20) particle.x = -20;
-                    if (particle.y > canvasHeight + 24) {
-                        particle.y = -24;
-                        particle.x = Math.random() * canvasWidth;
-                    }
-
-                    let pointerBoost = 0;
-                    if (pointer.active) {
-                        const pointerDistance = Math.hypot(
-                            particle.x - pointer.x,
-                            particle.y - pointer.y,
-                        );
-                        if (pointerDistance < 135) {
-                            const force = (1 - pointerDistance / 135) * 0.55;
-                            particle.x +=
-                                (particle.x - pointer.x) * 0.006 * force;
-                            particle.y +=
-                                (particle.y - pointer.y) * 0.004 * force;
-                            pointerBoost = force * 0.18;
-                        }
-                    }
-
-                    if (particle.length > 0) {
-                        context.strokeStyle =
-                            colors.streak +
-                            Math.min(particle.opacity + pointerBoost, 0.28) +
-                            ")";
-                        context.beginPath();
-                        context.moveTo(particle.x, particle.y);
-                        context.lineTo(
-                            particle.x - particle.length * 0.18,
-                            particle.y + particle.length,
-                        );
-                        context.stroke();
-                    } else {
-                        context.fillStyle =
-                            colors.point +
-                            Math.min(particle.opacity + pointerBoost, 0.36) +
-                            ")";
-                        context.beginPath();
-                        context.arc(
-                            particle.x,
-                            particle.y,
-                            particle.radius,
-                            0,
-                            Math.PI * 2,
-                        );
-                        context.fill();
-                    }
-                });
-
-                animationFrame = window.requestAnimationFrame(
-                    animateAmbientParticles,
-                );
-            }
-
-            window.addEventListener("mousemove", function (event) {
-                pointer.x = event.clientX;
-                pointer.y = event.clientY;
-                pointer.active = true;
-            });
-
-            window.addEventListener("mouseleave", function () {
-                pointer.active = false;
-            });
-
-            window.addEventListener("resize", resizeAmbientCanvas);
-
-            resizeAmbientCanvas();
-            animationFrame = window.requestAnimationFrame(
-                animateAmbientParticles,
-            );
-
-            function stopAmbientParticles() {
-                ambientStopped = true;
-                window.cancelAnimationFrame(animationFrame);
-                window.removeEventListener("resize", resizeAmbientCanvas);
-                ambientCanvas.remove();
-            }
-
-            function addMediaQueryListener(query, callback) {
-                if (query.addEventListener) {
-                    query.addEventListener("change", callback);
-                } else if (query.addListener) {
-                    query.addListener(callback);
-                }
-            }
-
-            addMediaQueryListener(motionQuery, function (event) {
-                if (event.matches) {
-                    stopAmbientParticles();
-                }
-            });
-
-            addMediaQueryListener(smallScreenQuery, function (event) {
-                if (event.matches) {
-                    stopAmbientParticles();
-                }
-            });
         });
     })();
 </script>
@@ -811,9 +513,9 @@
   
   <li><a href="/zh/">中文</a></li>
   
-  
   </ul>
 </nav>
+
       <div class="theme-toggle" aria-label="Theme toggle">
   <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
     <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -854,19 +556,12 @@
 
 
 
-
-
 <p>This is a about page.</p>
 
 
 
 
-
-
   <footer>
-  
-  
-
   
   
   

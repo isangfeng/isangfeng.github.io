@@ -1,6 +1,4 @@
   <footer>
-  {{ partial "foot_custom.html" . }}
-  {{ partial "footer_highlightjs" . }}
   {{ with .Site.Params.footer }}
   {{/* Skip this hr when single.html already placed one above the comments block */}}
   {{ if not ($.Scratch.Get "suppress_footer_hr") }}

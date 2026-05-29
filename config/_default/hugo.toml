@@ -1,0 +1,28 @@
+theme = "blowfish"
+baseURL = "https://isangfeng.github.io"
+defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = false
+publishDir = "docs"
+
+enableRobotsTXT = true
+summaryLength = 30
+hasCJKLanguage = true
+enableEmoji = true
+
+[pagination]
+  pagerSize = 10
+
+[imaging]
+  anchor = "Center"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[sitemap]
+  changefreq = "always"
+  filename = "sitemap.xml"
+  priority = 0.5

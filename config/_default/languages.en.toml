@@ -1,0 +1,23 @@
+locale = "en"
+label = "English"
+weight = 2
+title = "Feng Sang"
+
+[params]
+  displayName = "English"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "January 2, 2006"
+  logo = ""
+  description = "Feng Sang's personal blog"
+
+[params.author]
+  name = "Feng Sang"
+  image = "img/author.png"
+  headline = "Love and create"
+  bio = "Likes to daydream, occasionally write code and take photos."
+  links = [
+    { github = "https://github.com/isangfeng" },
+    { bilibili = "https://space.bilibili.com/357395902" },
+    { email = "mailto:sangfengchn@outlook.com" }
+  ]

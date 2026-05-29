@@ -1,0 +1,11 @@
+project:
+  type: default
+  render:
+    - "content/**/*.qmd"
+
+format:
+  hugo-md:
+    prefer-html: true
+
+execute:
+  freeze: auto

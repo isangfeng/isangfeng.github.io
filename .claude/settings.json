@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git -C /Users/creeper/Library/CloudStorage/OneDrive-Personal/Work/Blog/homepage_hugo diff --name-only HEAD)"
+      "Bash(git -C /Users/creeper/Library/CloudStorage/OneDrive-Personal/Work/Blog/homepage_hugo diff --name-only HEAD)",
+      "Bash(quarto render *)",
+      "Bash(grep -rl '```{r' /Users/creeper/Library/CloudStorage/OneDrive-Personal/Work/Blog/homepage_hugo/content/posts/2023/)",
+      "Bash(hugo --buildDrafts)",
+      "Bash(python3)"
     ]
   }
 }

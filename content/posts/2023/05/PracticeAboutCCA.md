@@ -1,0 +1,33 @@
+---
+title: 典型相关分析CCA
+description: 利用MATLAB进行CCA分析
+date: 2023-05-10T00:00:00.000Z
+author:
+  - Feng Sang
+  - Zilin Li
+categories:
+  - 科研
+tags:
+  - cca
+  - matlab
+format: hugo-md
+---
+
+
+典型相关分析（Canonical Correlation Analysis, CCA）可以计算两组变量（每组变量包含多个变量）之间的相关。参考Pearson相关，它只能计算两个变量之间的相关。本文主要介绍笔者在使用CCA的过程中的理解，可能存在不准确的地方。详细的原理，请参考：<https://www.cnblogs.com/pinard/p/6288716.html>。
+
+> 以下为笔者个人的理解，请批判性地阅读！
+
+对于两组变量X和Y，其中每组中包含多个变量（$X_1, X_2, ..., X_n$和$Y_1, Y_2, ..., Y_m$）。CCA的任务是为每组变量找到一些新的变量（U和V），使得两组新的变量之间的相关值最大。其中新产生的变量叫做canonical variabel，它的个数取决于两组原始变量中变量数较少的那组变量的个数（即$min(n, m)$）。另外，新的变量U和V分别是X和Y中各个变量的线性组合，其中的系数叫做*canoncial coefficient*（A和B）。
+
+MATALB中可以用*canoncorr*函数来做CCA。它输入参数为X和Y，输出是A，B，r，U，V和stats。其中A，B，U，V代表的含义如上所述。r表示*canonical variable*之间（U和V）的相关系数，它的个数与U和V中的变量个数（列数）相同，也等于$min(n, m)$。stats中是一些统计量和显著性。
+
+CCA中还有一个概念叫*loading*，它是U和A之间（或者V和B）的相关（U中的每一个变量分别和X中的每一个变量计算相关）。初步尝试后发现，A中较大值对应在X中的特征和U的相关会更大。因为A中越大的值对应的X中的变量，实际对U的影响也会越大。
+
+### 参考
+
+1.  <https://www.cnblogs.com/pinard/p/6288716.html>
+
+2.  <https://ww2.mathworks.cn/help/stats/canoncorr.html>
+
+3.  <https://blog.csdn.net/NoBuggie/article/details/102830981>

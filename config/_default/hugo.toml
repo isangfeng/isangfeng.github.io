@@ -1,5 +1,6 @@
 theme = "blowfish"
 baseURL = "https://isangfeng.github.io"
+ignoreFiles = ['\.qmd$']
 publishDir = "docs"
 defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = false
@@ -26,3 +27,8 @@ enableEmoji = true
   changefreq = "always"
   filename = "sitemap.xml"
   priority = 0.5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

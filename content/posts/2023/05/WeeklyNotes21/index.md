@@ -1,0 +1,37 @@
+---
+title: 周总结-数据转换
+author: 桑峰
+description: 本周内的ticks总结。
+date: 2023-05-25T00:00:00.000Z
+categories:
+  - 编程
+tags:
+  - matlab
+  - 梯形法
+format: hugo-md
+---
+
+
+## 转换数据
+
+问题：假设有两组数据X和Y，要求转换Y，使得转换后的Y曲线下面积与X的曲线下面积相同。
+
+解：首先曲线下面积可以通过将一系列梯形面积求和后得到。假设X和Y分别有三个数据点。如图1所示。通过梯形法计算X和Y对应的曲线下面积分别为Sx和Sy。要使得Sx和Sy相等，简单地，可以对Y中每一个数值都乘以X和Y的曲线下面积的比值得到转换后的Y。matlab代码如下：
+
+<figure>
+<img src="./fig/20230525.jpeg" alt="梯形法栗子" />
+<figcaption aria-hidden="true">梯形法栗子</figcaption>
+</figure>
+
+``` matlab
+X = randn([100, 1]);
+Y = randn([150, 1]) * 20;
+
+# 梯形法计算面积
+Sx = trapz(X);
+Sy = trapz(Y);
+
+newY = Y * Sx / Sy;
+
+Syn = trapz(newY);
+```

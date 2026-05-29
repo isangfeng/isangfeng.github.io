@@ -25,6 +25,12 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render Quarto files
+        run: find content -name "*.qmd" -exec quarto render {} \;
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:

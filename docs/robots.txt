@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://isangfeng.github.io/sitemap.xml

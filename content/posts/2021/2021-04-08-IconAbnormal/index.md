@@ -3,7 +3,7 @@ title: 移动硬盘图标异常
 author: 桑峰
 date: '2021-04-08'
 categories:
-  - 报错
+  - 系统/工具
 tags:
   - 图标
   - 移动硬盘

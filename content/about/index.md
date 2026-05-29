@@ -1,6 +1,7 @@
 ---
 title: "关于"
 date: 2026-05-29
+showComments: false
 ---
 
 ## 关于此处

@@ -1,8 +1,8 @@
 theme = "blowfish"
 baseURL = "https://isangfeng.github.io"
+publishDir = "docs"
 defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = false
-publishDir = "docs"
 
 enableRobotsTXT = true
 summaryLength = 30

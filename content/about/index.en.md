@@ -1,6 +1,7 @@
 ---
 title: "About"
 date: 2026-05-29
+showComments: false
 ---
 
 ## About this site

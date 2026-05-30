@@ -26,6 +26,6 @@ a <- a %>%
 This is the results:
 
 <figure>
-<img src="./20230920_fig1.png" alt="A simple example" />
+<img src="fig.png" alt="A simple example" />
 <figcaption aria-hidden="true">A simple example</figcaption>
 </figure>

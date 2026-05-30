@@ -1,6 +1,6 @@
 docs/
 resources/_gen/
 .hugo_build.lock
-
+.DS_Store
 /.quarto/
 **/*.quarto_ipynb

@@ -13,9 +13,9 @@ format: hugo-md
 ---
 
 
-# The measures about curvatures
+## The measures about curvatures
 
-## mris_curvature_stats
+### mris_curvature_stats
 
 ?h.smoothwm.xxx.crv is the the binary-curvature files where xxx is the different measures. Detailed descriptation is as follows:
 
@@ -43,7 +43,7 @@ In each file, the corresponding measures for each vertex were saved. And you may
 
 xxx is the file to save descriptation statistical results. -F is flag of surface name, the default is smoothwm in FreeSurfer Version 7.2.0. -G is calculated a series of derived curvature values from current surface file.
 
-## mris_curvature
+### mris_curvature
 
 It calculated the mean curvature and Gaussian curvature for a surface.
 
@@ -55,7 +55,7 @@ This command will output the lh.white.H and lh.white.K.
 
 This command smooth 10 for the original outputs.
 
-## The Integrated Rectified Mean/Gaussian Curvature
+### The Integrated Rectified Mean/Gaussian Curvature
 
 The descriptation is MeanCurv is the integral of the absolute value of H and GausCurv is the integral of the absolute value of K.
 
@@ -63,6 +63,6 @@ It seem is taking the absolute vaule for each vertex and multi with the area, an
 
 
 
-# Other measures
+## Other measures
 
 The area of a the pial/white is ?h.area.pial/?h.area. The ?h.volume and ?h.thickness is the volume and thickness of cortical.

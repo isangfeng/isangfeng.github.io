@@ -40,7 +40,7 @@ if __name__ == '__main__':
             res[futures[f]] = f.result()
 ```
 
-在并行处理时，写明 ***python if __name__ == '__main__'*** 以声明主进程。
+在并行处理时，写明 ``` if __name__ == '__main__' ``` 以声明主进程。
 
 进程级并行时，各个并行进程之间独享计算资源（尤其是内存）。对于这个例子，就是会为每个进程拷贝一个 **b** 。这样的好处是进程之间基本不会相互影响，对于I/O型任务的效率提升较大；而缺点是会增加内存的消耗。
 
@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
 > 上面的线程和进程相关的描述是笔者久远的记忆加上自己的理解，可能不准确，但代码可用。
 
-**futures[f]** 会返回 **{pool.submit(func, i, b): i for i in range(1, nums)}** 里面的 **i**。
+**futures[f]** 会返回 <strong>{pool.submit(func, i, b): i for i in range(1, nums)}</strong> 里面的 **i**。
 
 ## R并行处理
 

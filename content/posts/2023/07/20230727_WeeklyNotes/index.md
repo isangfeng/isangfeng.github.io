@@ -62,7 +62,7 @@ dat %>%
   )
 ```
 
-<img src="20230727_WeeklyNotes.markdown_strict_files/figure-markdown_strict/unnamed-chunk-1-1.png" width="768" />
+<img src="index.markdown_strict_files/figure-markdown_strict/unnamed-chunk-1-1.png" width="768" />
 
 ``` r
 # 输出图片的大小

@@ -24,4 +24,4 @@ a <- a %>%
 
 This is the results:
 
-![A simple example](./fig/20230920_fig1.png)
+![A simple example](./20230920_fig1.png)

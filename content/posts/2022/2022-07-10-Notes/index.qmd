@@ -10,7 +10,7 @@ tags:
 format: hugo-md
 ---
 
-# R Markdown图表交叉引用
+## R Markdown图表交叉引用
 
 在R Markdown中给图表添加引用是首先需要在文件的输出格式设置为以下三种之一。
 
@@ -27,9 +27,9 @@ output:
 
 其中fig-demo为图片的标签。在文中引用时，输入**\\@ref(fig:fig-demo)**即可自动添加图片引用。
 
-# ggplot2添加标签
+## ggplot2添加标签
 
-## 修改坐标轴端点样式
+### 修改坐标轴端点样式
 
 坐标轴端点样式可以通过如下命令修改，下图分别是三种端点样式的是示例图。
 
@@ -43,7 +43,7 @@ theme(axis.line = element_line(lineend='round'))
 
 ![这是square。](img/demo-square.png)
 
-## 给柱状图添加标签
+### 给柱状图添加标签
 
 给柱状图每个柱子添加相应的数字标签可以通过geom_text函数完成，显示效果如下图所示。
 

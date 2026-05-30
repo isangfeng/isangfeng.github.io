@@ -10,7 +10,7 @@ tags:
 format: hugo-md
 ---
 
-# Error: C++14 standard requested but CXX14 is not defined
+## Error: C++14 standard requested but CXX14 is not defined
 
 参考：https://www.zxzyl.com/archives/1283/
 

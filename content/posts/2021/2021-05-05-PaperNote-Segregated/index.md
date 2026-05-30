@@ -9,6 +9,8 @@ tags:
   - segregation
 ---
 
+{{< katex >}}
+
 ### Title
 
 > Segregated systems of human brain networks
@@ -26,7 +28,7 @@ With healthy adult , increasing segregation is associated with superior cognitiv
 
 Higher RSFC segregation exhibit the greatest improvements, and positivity correlate with improvement in the therapy.
 
-**$Segregation=(within-between)/within$**
+<strong>\(Segregation=(within-between)/within\)</strong>
 
 **Modularity** is calculated as the fraction of edges that fall within the given communities of a network compared to the expected fraction if the connections were distributed at random across the network.
 

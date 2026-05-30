@@ -12,7 +12,7 @@ format: hugo-md
 
 templateflow中包含了一些典型的神经影像脑模版，可在fmriprep等工具中使用。本文主要介绍如何下载templateflow。
 
-# 准备
+## 准备
 
 GitHub上有它的仓库，但是那只是DataLab的索引，因此直接下载是不能下载到模版文件的。需要通过DataLab下载。
 
@@ -24,7 +24,7 @@ conda install -c conda-forge datalad
 sudo apt-get install datalab
 ```
 
-# 下载
+## 下载
 
 下载索引文件，并使用DataLab下载模版。
 
@@ -35,7 +35,7 @@ cd templateflow
 datalad get -r tpl-fsLR
 ```
 
-# 通过python下载
+## 通过python下载
 
 笔者在使用datalad下载过程中，会经常遇到进度条长时间不动的情况。而且印象当中，笔者以前用python下载成功过，速度也不是很慢。因此这里将python下载templateflow的方法也追加进来。
 
@@ -59,7 +59,7 @@ python -c "from templateflow.api import get; get(['MNI152NLin2009cAsym', 'MNI152
 
 这里可以根据需要下载相应的模版文件。
 
-# 相关链接
+## 相关链接
 
 templateflow项目地址：https://github.com/templateflow/
 

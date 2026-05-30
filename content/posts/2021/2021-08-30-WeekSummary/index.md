@@ -1,5 +1,5 @@
 ---
-title: 一周小结
+title: 周总结-GRETNA/CAT12
 author: 桑峰
 date: 2021-08-30
 categories:

@@ -1,0 +1,17 @@
+{
+  "hash": "7423e76955d33bd9dd8cf0919bab6f89",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: 周总结-ggplot2作图\nauthor: 桑峰\ndate: 2023-07-27\ncategories:\n    - 可视化\ntags: \n  - ggplot2\n  - python\nformat: hugo-md\n---\n\n## 用ggplot2做饼图（Pie plot）\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors\n```\n\n\n:::\n\n```{.r .cell-code}\ndat <- tibble(y = c(1, 2, 3, 4), x = c('A', 'B', 'C', 'D'), color = c(\"#A6C9D5\", \"#B3DF7F\", \"#B76ED5\", \"#DA9083\"))\ndat\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n# A tibble: 4 × 3\n      y x     color  \n  <dbl> <chr> <chr>  \n1     1 A     #A6C9D5\n2     2 B     #B3DF7F\n3     3 C     #B76ED5\n4     4 D     #DA9083\n```\n\n\n:::\n\n```{.r .cell-code}\ndat %>% \n  # 让四种类型堆叠在一起，用不同的颜色填充\n  ggplot(aes(x = '', y = y, fill = x)) + \n  geom_bar(width = 1, stat = 'identity') +\n  coord_polar(\"y\", start = 0) +\n  labs(fill = 'X', title = 'Title') +\n  scale_fill_manual(values = dat$color) +\n  theme_minimal(base_size = 20) +\n  theme(\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    panel.border = element_blank(),\n    panel.grid = element_blank(),\n    axis.ticks = element_blank(),\n    plot.title = element_text(size = 14, face = 'bold'),\n    axis.text.x = element_blank(),\n    legend.position = 'right'\n  )\n```\n\n::: {.cell-output-display}\n![](index.markdown_strict_files/figure-markdown_strict/unnamed-chunk-1-1.png){width=768}\n:::\n\n```{.r .cell-code}\n# 输出图片的大小\n# ggsave('filepath.pdf', width = 14, height = 8)\n```\n:::\n\n\n## 修改.label.gii文件的颜色\n\n```python\nimport nibabel as nib\nimport matplotlib as mpl\n\nlhGiiPath = 'xxx.label.gii'\nlhGii = nib.load(lhGiiPath)\nlhGii.labeltable.labels[0].rgba = mpl.colors.to_rgba('#ABCD11FF')\nnib.save(lhGii, 'new_xxx.label.gii')\n```\n\n其中label.gii文件中的颜色信息可以通过lhGii.labeltable.labels返回；通过对其赋值可以修改对应的颜色；",
+    "supporting": [
+      "index.markdown_strict_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

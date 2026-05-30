@@ -9,7 +9,7 @@ tags:
   - install
 ---
 
-#### ERROR  : Base home directory does not exist within the container: /brain
+## ERROR  : Base home directory does not exist within the container: /brain
 
 用沙盒模式创建镜像，然后以交互方式进入镜像后创建/brain目录。之后将沙盒格式的镜像打包为.img文件即可。
 
@@ -29,7 +29,7 @@ Singularity centos7:~/envs> exit
 singularity build centos7.img centos7/
 ```
 
-#### ERROR  : Home directory is not owned by calling user: /usr/local/singularity-2.5.2
+## ERROR  : Home directory is not owned by calling user: /usr/local/singularity-2.5.2
 
 报错命令：singularity shell smriprep.simg
 

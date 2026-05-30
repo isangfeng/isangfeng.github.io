@@ -12,7 +12,7 @@ format: hugo-md
 ---
 
 
-# 运行MATLAB
+## 运行MATLAB
 
 使用matlab镜像运行matlab可使用如下命令：
 
@@ -22,7 +22,7 @@ singularity exec matlab-r2020a.img matlab -batch xxx
 
 其中matlab-r2020a.img为镜像名称，xxx为matlab脚本，不包含.m。
 
-# 运行fmriprep
+## 运行fmriprep
 
 *脑院高性能平台最高支持fmriprep版本为20.1.3，版本再高会报告I/O异常的错误。*
 

@@ -10,27 +10,29 @@ tags:
   - hemsiphere differences
 ---
 
-### Title
+{{< katex >}}
+
+## Title
 
 > Hemisphere- and gender-related differences in small-world brain networks: A resting-state functional MRI study
 
-### Results
+## Results
 
 Male have a large normalized clustering coefficient in the right hemispheric network, but a lower clustering coefficient in the left hemispheric network.
 
 Significant hemisphere-related differences in the regional nodal characteristics: frontal and occipital regions (leftward asymmetry), temporal regions (rightward asymmetry).
 
-### Conclustions
+## Conclustions
 
 Topological organization of human brain functional networks is associated with gender and hemispheres.
 
-### Notes
+## Notes
 
 Alterations of brain asymmetries are associated with behavior changes in normal aging and in various neuropsychiatric and neurological diseases such as schizophrenia, stroke and dyslexia.
 
 Statistically, males perform better in right-lateralized visuospatial perception processing, whereas females have advantages in left-lateralized language processing.
 
-Small-world properties is used to identify the range of sparsity (10%~46%). ($\gamma>1$, `\(\lambda\approx1\)`, and `\(\sigma>1.2\)`)
+Small-world properties is used to identify the range of sparsity (10%~46%). (\(\gamma>1\), \(\lambda\approx1\), and \(\sigma>1.2\))
 
 Generate the comprehensive score by multiplying the sparsity interval and measures at all sparsities.
 
@@ -38,6 +40,6 @@ Hub node is at least one standard deviation greater than the average of paramete
 
 Asymmetry score (A) = 100 * (R-L)/(0.5*(R+L)), and positive asymmetry scores indicated right-ward asymmetry and vice versa.
 
-### Links
+## Links
 
 1. https://doi.org/10.1016/j.neuroimage.2010.07.066

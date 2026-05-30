@@ -11,7 +11,7 @@ tags:
 
 在Windows 10的Linux子系统（**WLS**）中安装singularity(version=2.6.0)，并创建镜像。
 
-在之前多次尝试中发现，在直接创建.simg镜像时会报告错误（Error: no more available loop devices.），导致创建失败。尝试发现可以通过添加**--sandbox**参数解决。完整命令如下：
+在之前多次尝试中发现，在直接创建.simg镜像时会报告错误（Error: no more available loop devices.），导致创建失败。尝试发现可以通过添加<strong>--sandbox</strong>参数解决。完整命令如下：
 
 
 ```bash
@@ -59,7 +59,7 @@ Include: yum
 
 奇怪的是，如果把配置文件的名称改为demo.def或test.def，则无法创建镜像。
 
-等创建完成，可以在运行命令中添加**--writable**参数运行镜像，并在镜像中安装相关的软件。
+等创建完成，可以在运行命令中添加<strong>--writable</strong>参数运行镜像，并在镜像中安装相关的软件。
 
 ```bash
 singularity shell --writable image_name

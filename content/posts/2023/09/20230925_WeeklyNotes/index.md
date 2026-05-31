@@ -52,13 +52,13 @@ format: hugo-md
 
 统计量：样本量为N的样本中事件P的次数。
 
-判断标准：如果单尾或双尾$p（事件P的次数）\leq \alpha$，拒绝\(H_0\)。
+判断标准：如果单尾或双尾\(p（事件P的次数）\leq \alpha\)，拒绝\(H_0\)。
 
 ## 独立样本设计: 两个样本
 
 ### 独立样本t检验
 
-统计量：\(t_{obt}=\frac{(\overline{X}_1-\overline{X}_2)-\mu_{\overline{X}_1-\overline{X}_2}}{\sqrt{(\frac{SS_1+SS_2}{n_1+n_2-2})(\frac{1}{n_1}+\frac{1}{n_2})}}\). 当$n_1=n_2$，$t_{obt}=\frac{(\overline{X}_1-\overline{X}_2)-\mu_{\overline{X}_1-\overline{X}_2}}{\sqrt{(\frac{SS_1+SS_2}{n(n-1)})}}$.
+统计量：\(t_{obt}=\frac{(\overline{X}_1-\overline{X}_2)-\mu_{\overline{X}_1-\overline{X}_2}}{\sqrt{(\frac{SS_1+SS_2}{n_1+n_2-2})(\frac{1}{n_1}+\frac{1}{n_2})}}\). 当\(n_1=n_2\)，\(t_{obt}=\frac{(\overline{X}_1-\overline{X}_2)-\mu_{\overline{X}_1-\overline{X}_2}}{\sqrt{(\frac{SS_1+SS_2}{n(n-1)})}}\).
 
 判断标准：如果\(|t_{obt}| \geq |t_{crit}|\)，拒绝\(H_0\).
 

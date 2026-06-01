@@ -3,23 +3,49 @@
 {{ if gt (len $tags) 0 }}
   <aside class="order-first px-0 lg:order-last lg:ms-auto lg:max-w-2xs lg:ps-8">
     <nav class="toc ps-5 print:hidden lg:sticky {{ .topClass }}" aria-label="{{ $tagsPage.Title }}">
-      <div class="min-w-[220px] border-s-1 border-dotted py-2 -ms-5 ps-5 dark:border-neutral-600">
-        <h2 class="mt-0 mb-2 text-lg font-semibold text-neutral-800 dark:text-neutral-100">
-          <a class="hover:underline hover:underline-offset-2" href="{{ $tagsPage.RelPermalink }}">
-            {{ $tagsPage.Title }}
-          </a>
-        </h2>
-        <ul class="m-0 list-none ps-0">
-          {{ range $tags.Alphabetical }}
-            <li class="my-1">
-              <a class="text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400" href="{{ .Page.RelPermalink }}">
-                {{ .Page.Title }}
-              </a>
-              <span class="ms-1 text-sm text-neutral-400">{{ .Count }}</span>
-            </li>
-          {{ end }}
-        </ul>
-      </div>
+      <details
+        open
+        class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+        <summary
+          class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+          {{ $tagsPage.Title }}
+        </summary>
+        <div class="min-w-[220px] border-s-1 border-dotted py-2 -ms-5 ps-5 dark:border-neutral-600">
+          <h2 class="mt-0 mb-2 text-lg font-semibold text-neutral-800 dark:text-neutral-100">
+            <a class="hover:underline hover:underline-offset-2" href="{{ $tagsPage.RelPermalink }}">
+              {{ $tagsPage.Title }}
+            </a>
+          </h2>
+          <ul class="m-0 list-none ps-0">
+            {{ range $tags.Alphabetical }}
+              <li class="my-1">
+                <a class="text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400" href="{{ .Page.RelPermalink }}">
+                  {{ .Page.Title }}
+                </a>
+                <span class="ms-1 text-sm text-neutral-400">{{ .Count }}</span>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      </details>
+      <details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+        <summary
+          class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+          {{ $tagsPage.Title }}
+        </summary>
+        <div class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+          <ul class="m-0 list-none ps-0">
+            {{ range $tags.Alphabetical }}
+              <li class="my-1">
+                <a class="text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400" href="{{ .Page.RelPermalink }}">
+                  {{ .Page.Title }}
+                </a>
+                <span class="ms-1 text-sm text-neutral-400">{{ .Count }}</span>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      </details>
     </nav>
   </aside>
 {{ end }}

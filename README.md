@@ -31,3 +31,7 @@ git push origin main
 I have added quarto into github action workflow. So, it's not necessary to render qmd file to md file and convert md file to html file. The only thing need to do is to write in md files.<D-s>
 
 
+## TODO: 2026.06.20
+1. Add introduction about me on homepage.
+2. Don't show tags of other menu items on post pages.
+3. List style of other menu items is not same to post.

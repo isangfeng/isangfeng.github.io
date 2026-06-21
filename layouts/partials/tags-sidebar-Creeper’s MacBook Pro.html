@@ -1,28 +1,6 @@
-{{ $pages := .pages }}
+{{ $tags := site.Taxonomies.tags }}
 {{ $tagsPage := site.GetPage "/tags" }}
-{{ $items := slice }}
-{{ if $pages }}
-  {{ $scopeKeys := slice }}
-  {{ range $pages }}
-    {{ $scopeKeys = $scopeKeys | append .RelPermalink }}
-  {{ end }}
-  {{ range site.Taxonomies.tags.Alphabetical }}
-    {{ $count := 0 }}
-    {{ range .Page.Pages }}
-      {{ if in $scopeKeys .RelPermalink }}
-        {{ $count = add $count 1 }}
-      {{ end }}
-    {{ end }}
-    {{ if gt $count 0 }}
-      {{ $items = $items | append (dict "Page" .Page "Count" $count) }}
-    {{ end }}
-  {{ end }}
-{{ else }}
-  {{ range site.Taxonomies.tags.Alphabetical }}
-    {{ $items = $items | append (dict "Page" .Page "Count" .Count) }}
-  {{ end }}
-{{ end }}
-{{ if gt (len $items) 0 }}
+{{ if gt (len $tags) 0 }}
   <aside class="order-first px-0 lg:order-last lg:ms-auto lg:max-w-2xs lg:ps-8">
     <nav class="toc ps-5 print:hidden lg:sticky {{ .topClass }}" aria-label="{{ $tagsPage.Title }}">
       <details
@@ -39,7 +17,7 @@
             </a>
           </h2>
           <ul class="m-0 list-none ps-0">
-            {{ range $items }}
+            {{ range $tags.Alphabetical }}
               <li class="my-1">
                 <a class="text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400" href="{{ .Page.RelPermalink }}">
                   {{ .Page.Title }}
@@ -57,7 +35,7 @@
         </summary>
         <div class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
           <ul class="m-0 list-none ps-0">
-            {{ range $items }}
+            {{ range $tags.Alphabetical }}
               <li class="my-1">
                 <a class="text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400" href="{{ .Page.RelPermalink }}">
                   {{ .Page.Title }}

@@ -4,6 +4,11 @@
   weight = 10
 
 [[main]]
+  name = "随笔"
+  pageRef = "essays"
+  weight = 20
+  
+[[main]]
   name = "关于"
   pageRef = "about"
   weight = 40

@@ -1,7 +1,8 @@
 locale = "zh-cn"
 label = "简体中文"
-weight = 1
+weight = 2
 title = "桑峰"
+contentDir = "content/zh-cn"
 
 [params]
   displayName = "简体中文"

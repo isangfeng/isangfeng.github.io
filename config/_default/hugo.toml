@@ -2,7 +2,8 @@ theme = "blowfish"
 baseURL = "https://isangfeng.github.io"
 ignoreFiles = ['\.qmd$']
 publishDir = "docs"
-defaultContentLanguage = "zh-cn"
+defaultContentLanguage = "en"
+# defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = false
 
 enableRobotsTXT = true

@@ -1,7 +1,8 @@
 locale = "en"
 label = "English"
-weight = 2
+weight = 1
 title = "Feng Sang"
+contentDir = "content/en"
 
 [params]
   displayName = "English"
@@ -14,7 +15,7 @@ title = "Feng Sang"
 [params.author]
   name = "Feng Sang"
   image = "img/author.png"
-  headline = "Love and create"
+  headline = "To love and to create."
   bio = "Likes to daydream, occasionally write code and take photos."
   links = [
     { github = "https://github.com/isangfeng" },

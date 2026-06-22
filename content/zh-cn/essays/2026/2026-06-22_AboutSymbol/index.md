@@ -1,4 +1,12 @@
-## 关于符号
+---
+title: "关于符号"
+date: 2026-06-22
+categories:
+  - 随笔
+tags:
+  - 文字
+  - 勇敢
+---
 
 <center>
     <img style="width:50%;" 

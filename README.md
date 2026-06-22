@@ -32,6 +32,6 @@ I have added quarto into github action workflow. So, it's not necessary to rende
 
 
 ## TODO: 2026.06.20
-1. Add introduction about me on homepage.
-2. Don't show tags of other menu items on post pages.
-3. List style of other menu items is not same to post.
+1. Add introduction about me on homepage. #FINISHED
+2. Don't show tags of other menu items on post pages. #FINISHED
+3. List style of other menu items is not same to post. #FINISHED
